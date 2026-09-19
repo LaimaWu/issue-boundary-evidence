@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+import sys
 import urllib.parse
 from collections import defaultdict
 
@@ -69,6 +70,27 @@ REGRESSION_TERMS = re.compile(
     r"introduced in|fixed in|will be fixed|next release|workaround|behavior change[ds]?)\b",
     re.I,
 )
+REGRESSION_TEST_CONTEXT_RE = re.compile(
+    r"\b(?:non[- ]regression|regression)\s+(?:test(?:s|ing)?|checks?|coverage|cases?)\b|"
+    r"\b(?:tests?|checks?|coverage)\b[^.!?]{0,60}\b(?:prevent|avoid|catch)\s+(?:a\s+)?regression\b|"
+    r"\b(?:prevent|avoid)\s+(?:a\s+)?regression\b",
+    re.I,
+)
+REGRESSION_HISTORY_TRANSITION_RE = re.compile(
+    r"\b(?:regressed|used to work|previously worked|formerly worked|no longer works?|stopped working|"
+    r"(?:started|began)\s+(?:failing|breaking)|(?:since|after)\s+(?:upgrading|updating|downgrading)|"
+    r"introduced\s+(?:in|by)|fixed\s+(?:in|since|before|after)|will be fixed|"
+    r"behavior change[ds]?|older versions?|previous versions?)\b",
+    re.I,
+)
+WORKED_VERSION_TRANSITION_RE = re.compile(
+    r"\bworked\s+(?:in|on|with)\s+(?:version\s*)?v?\d+(?:\.\d+){1,3}\b|"
+    r"\b(?:it|this|that|the\s+(?:feature|code|command|package|project|release|version))\s+worked\s+before\b",
+    re.I,
+)
+REGRESSION_NOUN_RE = re.compile(r"(?<!non-)(?<!non )\bregression\b", re.I)
+WORKAROUND_RE = re.compile(r"\bworkaround\b", re.I)
+HISTORY_LINK_RE = re.compile(r"\b(?:since|after|before|introduced|removed|became|started|needed|required)\b", re.I)
 UNCERTAINTY_TERMS = re.compile(
     r"\b(not sure (?:where|whether|if)|unsure (?:where|whether|if)|which (?:project|repo|package)|"
     r"belongs? (?:here|upstream)|report (?:this )?(?:here|upstream)|cannot reproduce|can't reproduce|"
@@ -86,6 +108,11 @@ RUNTIME_BOUNDARY_RE = re.compile(
     re.I,
 )
 EXTERNAL_URL_RE = re.compile(r"https?://[^\s<>\]})`'\"]+", re.I)
+MARKDOWN_LINK_RE = re.compile(
+    r"\[(?P<label>[^\]\n]*)\]\(\s*(?P<url>https?://[^\s)]+)\s*\)",
+    re.I,
+)
+NON_HISTORY_SHA_FIELD_RE = re.compile(r"^\s*(?:(?:git\s+)?commit|checksum|sha(?:-?sum)?|hash)\s*:", re.I)
 INFRASTRUCTURE_TERMS = re.compile(
     r"\b(CI|continuous integration|package repositor(?:y|ies)|repository|registry|package index|"
     r"signature(?: verification)?|download server|external service|repository metadata|repomd\.xml)\b",
@@ -128,6 +155,40 @@ SETUPTOOLS_INVESTIGATION_RE = re.compile(
     r"\b(?:behavior|check|support|version|responsib)\b[^.\n]{0,100}\bsetuptools\b",
     re.I,
 )
+COMPONENT_RESPONSIBILITY_RE = re.compile(
+    r"\b(?:belongs?\s+(?:to|upstream|downstream)|responsib(?:le|ility)|root cause|caused by|"
+    r"upstream|downstream)\b",
+    re.I,
+)
+COMPONENT_INTERACTION_RE = re.compile(
+    r"\b(?:incompatib(?:le|ility)|compatib(?:le|ility)|interoperab(?:le|ility)|integrat(?:e[sd]?|ion)|"
+    r"hooks?|interact(?:s|ion)|conflicts?|used\s+with|when\s+(?:used|running)\s+with)\b",
+    re.I,
+)
+COMPONENT_FAILURE_RE = re.compile(
+    r"\b(?:fails?|failure|errors?|exceptions?|crash(?:es|ed)?|breaks?|broken|incorrect|"
+    r"stopped working|does not work|doesn't work)\b",
+    re.I,
+)
+STRUCTURED_PACKAGE_FIELD_RE = re.compile(
+    r"^\s*(?:package|plugin|dependency|library|backend|runtime)(?:\s+name)?\s*[:=]",
+    re.I,
+)
+ENVIRONMENT_PACKAGE_ROW_RE = re.compile(r"^\s*[A-Za-z][\w.-]+\s+v?\d+(?:\.\d+)+(?:\s|$)", re.I)
+PYTEST_COMMAND_RE = re.compile(
+    r"(?:^|\b(?:run|execute|command)\s+|[$>]\s*|`)\s*`?"
+    r"(?:(?:python(?:3(?:\.\d+)?)?\s+-m|uv\s+run)\s+)?"
+    r"pytest(?=\s+(?:-{1,2}\w|tests?\b|[\w./-]+\.py\b)|\s*`)",
+    re.I,
+)
+COMPARISON_REPOSITORY_RE = re.compile(
+    r"\b(?:for comparison|compar(?:e[sd]?|ing)\s+(?:to|with)|example|reference (?:project|repository)|"
+    r"see also|similar (?:project|repository)|patch provenance|fork(?:\s+(?:branch|repository))?|"
+    r"personal (?:fork|repository))\b",
+    re.I,
+)
+SEMANTIC_UNIT_BOUNDARY_RE = re.compile(r"[.!?](?=\s|$)|\n")
+INLINE_CODE_RE = re.compile(r"`(?P<code>[^`\n]+)`")
 CODE_FENCE_RE = re.compile(r"```.*?```", re.S)
 
 
@@ -187,6 +248,56 @@ def _context_at(text: str, start: int, end: int, radius: int = 220) -> str:
     return re.sub(r"\s+", " ", text[max(0, start - radius) : min(len(text), end + radius)]).strip()
 
 
+def _semantic_unit_at(text: str, start: int, end: int) -> str:
+    left = 0
+    for boundary in SEMANTIC_UNIT_BOUNDARY_RE.finditer(text, 0, start):
+        left = boundary.end()
+    right_match = SEMANTIC_UNIT_BOUNDARY_RE.search(text, end)
+    right = right_match.start() if right_match else len(text)
+    return re.sub(r"\s+", " ", text[left:right]).strip()
+
+
+def _span_is_within(match: re.Match[str], container: re.Match[str]) -> bool:
+    return container.start() <= match.start() and match.end() <= container.end()
+
+
+def _package_mention_is_incidental(text: str, match: re.Match[str], key: str) -> bool:
+    if key in sys.stdlib_module_names:
+        return True
+    if any(_span_is_within(match, import_match) for import_match in IMPORT_RE.finditer(text)):
+        return True
+    for code_match in INLINE_CODE_RE.finditer(text):
+        if _span_is_within(match, code_match):
+            code = code_match.group("code").strip().casefold().replace("-", "_")
+            if code != key:
+                return True
+    line = _line_at(text, match.start())
+    if STRUCTURED_PACKAGE_FIELD_RE.match(line) or ENVIRONMENT_PACKAGE_ROW_RE.match(line):
+        return True
+    return key == "pytest" and bool(PYTEST_COMMAND_RE.search(line))
+
+
+def _component_has_boundary_signal(context: str) -> bool:
+    return bool(
+        COMPONENT_RESPONSIBILITY_RE.search(context)
+        or COMPONENT_INTERACTION_RE.search(context)
+        or COMPONENT_FAILURE_RE.search(context)
+        or _describes_history_transition(context)
+        or (VERSION_RE.search(context) and VERSION_RELEVANCE_TERMS.search(context))
+    )
+
+
+def _repository_has_boundary_signal(context: str, url: str) -> bool:
+    has_explicit_relation = bool(
+        COMPONENT_RESPONSIBILITY_RE.search(context) or COMPONENT_INTERACTION_RE.search(context)
+    )
+    if has_explicit_relation:
+        return True
+    if COMPARISON_REPOSITORY_RE.search(context) or _github_commit_sha(url) is not None:
+        return False
+    return _component_has_boundary_signal(context)
+
+
 def extract_versions(text: str) -> list[str]:
     return list(dict.fromkeys(match.group(0).lstrip("vV").rstrip(".,;:") for match in VERSION_RE.finditer(text)))
 
@@ -227,6 +338,30 @@ def extract_github_links(text: str) -> list[dict[str, str | int | None]]:
     return links
 
 
+def _github_commit_sha(url: str) -> str | None:
+    parsed = urllib.parse.urlsplit(url)
+    if (parsed.hostname or "").casefold() not in {"github.com", "www.github.com"}:
+        return None
+    path_parts = parsed.path.rstrip("/").split("/")
+    if len(path_parts) != 5 or path_parts[3].casefold() != "commit":
+        return None
+    if not re.fullmatch(r"[0-9a-f]{7,40}", path_parts[4], re.I):
+        return None
+    return path_parts[4]
+
+
+def _github_commit_links(text: str) -> list[tuple[str, str, re.Match[str]]]:
+    links: list[tuple[str, str, re.Match[str]]] = []
+    for match in GITHUB_LINK_RE.finditer(text):
+        if match.group("owner").casefold() in GITHUB_RESERVED_ROOTS:
+            continue
+        url = match.group(0).rstrip(".,;:")
+        sha = _github_commit_sha(url)
+        if sha is not None:
+            links.append((url, sha, match))
+    return links
+
+
 def extract_stack_modules(text: str) -> list[str]:
     modules: list[str] = []
     for match in STACK_MODULE_RE.finditer(text):
@@ -250,7 +385,21 @@ def extract_packages(text: str) -> list[str]:
 
 
 def extract_regression_phrases(text: str) -> list[str]:
-    return [sentence for sentence in _sentences(text) if REGRESSION_TERMS.search(sentence)]
+    return [sentence for sentence in _sentences(text) if _describes_history_transition(sentence)]
+
+
+def _describes_history_transition(text: str) -> bool:
+    without_test_context = REGRESSION_TEST_CONTEXT_RE.sub(" ", text)
+    return bool(
+        REGRESSION_HISTORY_TRANSITION_RE.search(without_test_context)
+        or WORKED_VERSION_TRANSITION_RE.search(without_test_context)
+        or REGRESSION_NOUN_RE.search(without_test_context)
+        or (
+            WORKAROUND_RE.search(without_test_context)
+            and HISTORY_LINK_RE.search(without_test_context)
+            and VERSION_RE.search(without_test_context)
+        )
+    )
 
 
 def _canonical_regression_phrase(sentence: str) -> str:
@@ -290,8 +439,10 @@ def _version_is_relevant(issue: Issue, doc: Document, match: re.Match[str]) -> b
     if repo_prefix.search(prefix):
         return True
     local_context = line[max(0, relative_start - 100) : min(len(line), relative_end + 100)]
+    if REGRESSION_TEST_CONTEXT_RE.search(local_context) and not _describes_history_transition(local_context):
+        return False
     if (
-        REGRESSION_TERMS.search(local_context)
+        _describes_history_transition(local_context)
         or VERSION_RELEVANCE_TERMS.search(local_context)
         or RELEASE_VERSION_CONTEXT_RE.search(local_context)
         or RELEASE_VERSION_CONTEXT_RE.search(line)
@@ -334,10 +485,17 @@ def extract_evidence(issue: Issue) -> list[Evidence]:
     package_sources: dict[str, list[Source]] = defaultdict(list)
     package_strong_sources: dict[str, list[Source]] = defaultdict(list)
     package_display: dict[str, str] = {}
-    external_repo_sources: dict[str, list[Source]] = defaultdict(list)
+    external_repo_strong_sources: dict[str, list[Source]] = defaultdict(list)
     current_names = {issue.repo.casefold().replace("-", "_"), issue.owner.casefold().replace("-", "_")}
+    explicit_commit_shas: set[str] = set()
+    for doc in docs:
+        prose = mask_code_fences(doc.text)
+        for _, sha, match in _github_commit_links(prose):
+            if not NON_HISTORY_SHA_FIELD_RE.match(_line_at(doc.text, match.start())):
+                explicit_commit_shas.add(sha.casefold())
 
     for doc in docs:
+        prose = mask_code_fences(doc.text)
         for match in PYTHON_RE.finditer(doc.text):
             runtime = match.group(0)
             items.append(Evidence("environment", Confidence.FACT, f"Runtime mentioned: {runtime}.", (_source(doc, match),)))
@@ -359,6 +517,13 @@ def extract_evidence(issue: Issue) -> list[Evidence]:
                 match = re.search(re.escape(shorthand), doc.text, re.I)
             repo_name = f"{link['owner']}/{link['repo']}"
             relation = "external repository" if repo_name.casefold() != f"{issue.owner}/{issue.repo}".casefold() else "same repository"
+            link_has_boundary_signal = bool(
+                match is not None
+                and _repository_has_boundary_signal(
+                    _semantic_unit_at(doc.text, match.start(), match.end()),
+                    str(link["url"]),
+                )
+            )
             items.append(
                 Evidence(
                     "related",
@@ -367,9 +532,9 @@ def extract_evidence(issue: Issue) -> list[Evidence]:
                     (_source(doc, match),),
                 )
             )
-            if relation == "external repository":
+            if relation == "external repository" and link_has_boundary_signal:
                 repo_key = str(link["repo"]).casefold().replace("-", "_")
-                external_repo_sources[repo_key].append(_source(doc, match))
+                external_repo_strong_sources[repo_key].append(_source(doc, match))
                 items.append(
                     Evidence(
                         "boundary",
@@ -378,6 +543,18 @@ def extract_evidence(issue: Issue) -> list[Evidence]:
                         (_source(doc, match),),
                     )
                 )
+
+        for commit_url, sha, match in _github_commit_links(prose):
+            if NON_HISTORY_SHA_FIELD_RE.match(_line_at(doc.text, match.start())):
+                continue
+            items.append(
+                Evidence(
+                    "version",
+                    Confidence.FACT,
+                    f"Historical commit referenced: [{sha}]({commit_url}).",
+                    (_source(doc, match),),
+                )
+            )
 
         for match in EXTERNAL_URL_RE.finditer(doc.text):
             url = match.group(0).rstrip(".,;:")
@@ -395,9 +572,20 @@ def extract_evidence(issue: Issue) -> list[Evidence]:
                     )
                 )
 
-        for match in HISTORY_SHA_RE.finditer(mask_code_fences(doc.text)):
+        excluded_sha_spans = [match.span() for match in EXTERNAL_URL_RE.finditer(prose)]
+        excluded_sha_spans.extend(match.span("label") for match in MARKDOWN_LINK_RE.finditer(prose))
+        for match in HISTORY_SHA_RE.finditer(prose):
             sha = match.group("sha")
-            if re.match(r"^\s*commit\s*:", _line_at(doc.text, match.start()), re.I):
+            sha_start, sha_end = match.span("sha")
+            if any(start <= sha_start and sha_end <= end for start, end in excluded_sha_spans):
+                continue
+            normalized_sha = sha.casefold()
+            if any(
+                target.startswith(normalized_sha) or normalized_sha.startswith(target)
+                for target in explicit_commit_shas
+            ):
+                continue
+            if NON_HISTORY_SHA_FIELD_RE.match(_line_at(doc.text, match.start())):
                 continue
             commit_url = f"https://github.com/{issue.owner}/{issue.repo}/commit/{sha}"
             items.append(
@@ -437,24 +625,20 @@ def extract_evidence(issue: Issue) -> list[Evidence]:
                 source = _source(doc, match)
                 package_sources[key].append(source)
                 context = _context_at(doc.text, match.start(), match.end(), radius=120)
+                semantic_unit = _semantic_unit_at(doc.text, match.start(), match.end())
                 stack_modules = {name.casefold().replace("-", "_") for name in extract_stack_modules(doc.text)}
-                has_explicit_signal = bool(
-                    (
-                        BOUNDARY_TERMS.search(context)
-                        and ("wheel" not in context.casefold() or PACKAGING_CONTEXT_RE.search(context))
-                    )
-                    or UNCERTAINTY_TERMS.search(context)
-                    or REGRESSION_TERMS.search(context)
-                    or (VERSION_RE.search(context) and VERSION_RELEVANCE_TERMS.search(context))
-                    or (key in stack_modules and BOUNDARY_TERMS.search(context))
-                    or (doc.kind == "issue_title" and key not in current_names)
-                )
-                if key in PACKAGING_TOOL_KEYS:
+                if _package_mention_is_incidental(doc.text, match, key):
+                    has_explicit_signal = False
+                elif key in PACKAGING_TOOL_KEYS:
                     has_explicit_signal = _packaging_tool_is_directly_investigated(key, context)
+                else:
+                    has_explicit_signal = bool(
+                        _component_has_boundary_signal(semantic_unit)
+                        or (key in stack_modules and COMPONENT_FAILURE_RE.search(context))
+                    )
                 if has_explicit_signal:
                     package_strong_sources[key].append(source)
 
-        prose = mask_code_fences(doc.text)
         for sentence in extract_regression_phrases(prose):
             canonical_sentence = _canonical_regression_phrase(sentence)
             items.append(
@@ -479,7 +663,7 @@ def extract_evidence(issue: Issue) -> list[Evidence]:
     for key, sources in package_sources.items():
         display = package_display[key]
         unique_sources = list(dict.fromkeys(sources))
-        strong_sources = list(dict.fromkeys(package_strong_sources[key] + external_repo_sources[key]))
+        strong_sources = list(dict.fromkeys(package_strong_sources[key] + external_repo_strong_sources[key]))
         confidence = Confidence.STRONG_CLUE if strong_sources else Confidence.WEAK_CLUE
         if key in current_names or key == "wheel" or confidence == Confidence.WEAK_CLUE:
             continue
