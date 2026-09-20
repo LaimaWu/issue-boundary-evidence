@@ -25,7 +25,7 @@ runs:
 
     - name: Install Issue Boundary Evidence
       shell: bash
-      run: python -m pip install --disable-pip-version-check --no-cache-dir issue-boundary-evidence==0.1.2
+      run: python -m pip install --disable-pip-version-check --no-cache-dir "${GITHUB_ACTION_PATH}"
 
     - name: Generate read-only evidence report
       id: report
