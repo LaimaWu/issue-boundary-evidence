@@ -1,0 +1,37 @@
+name: Action adapter spike
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - action.yml
+      - .github/workflows/action-adapter-spike.yml
+      - README.md
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out adapter
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Run adapter without a token
+        id: evidence
+        uses: ./
+        with:
+          issue-url: https://github.com/pandas-dev/pandas/issues/58927
+
+      - name: Verify report output
+        shell: bash
+        env:
+          REPORT_PATH: ${{ steps.evidence.outputs.report-path }}
+        run: |
+          set -euo pipefail
+          test -n "${REPORT_PATH}"
+          test -s "${REPORT_PATH}"
+          grep -q '^# Issue Boundary Evidence$' "${REPORT_PATH}"
