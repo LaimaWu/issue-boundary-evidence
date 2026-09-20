@@ -10,7 +10,7 @@
 - Add a manually triggered GitHub Actions workflow for PyPI Trusted Publishing with OIDC and the `pypi` environment.
 - Build and validate both the wheel and source distribution.
 - Document installation from the v0.1.2 GitHub release wheel.
-- Keep PyPI installation marked as pending until the first Trusted Publishing run succeeds.
+- Publish the package to PyPI through the Trusted Publishing workflow.
 
 ## Behavior
 
