@@ -40,7 +40,25 @@ It does not comment, label, close, or otherwise modify GitHub Issues. It does no
 
 There are no runtime package dependencies.
 
-## Install
+## Install from the v0.1.2 GitHub release
+
+Install the wheel attached to the v0.1.2 GitHub release:
+
+```bash
+python -m pip install https://github.com/LaimaWu/issue-boundary-evidence/releases/download/v0.1.2/issue_boundary_evidence-0.1.2-py3-none-any.whl
+```
+
+## PyPI installation pending
+
+PyPI publication is not live yet. After the first Trusted Publishing run succeeds, the package will be installable with:
+
+```bash
+python -m pip install issue-boundary-evidence
+```
+
+Until then, use the GitHub release wheel or the contributor installation below.
+
+## Contributor install
 
 From the repository root:
 
