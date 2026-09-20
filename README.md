@@ -84,6 +84,23 @@ Run without installing:
 PYTHONPATH=src python -m issue_boundary_evidence.cli https://github.com/OWNER/REPO/issues/123
 ```
 
+## Provisional GitHub Action adapter
+
+This adapter is an adoption spike and is not released or published to GitHub Marketplace. If the spike is accepted and merged, the intended consumer shape is:
+
+```yaml
+permissions:
+  contents: read
+
+steps:
+  - id: evidence
+    uses: LaimaWu/issue-boundary-evidence@main
+    with:
+      issue-url: https://github.com/OWNER/REPO/issues/123
+```
+
+The action installs the published `issue-boundary-evidence==0.1.2` CLI, writes the normal Markdown report to `${{ steps.evidence.outputs.report-path }}`, and appends the same report to the job summary. The optional `github-token` input may be supplied only to raise GitHub's public API rate limit; it is not required for ordinary public issues.
+
 ## Test
 
 ```bash
