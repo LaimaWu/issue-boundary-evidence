@@ -13,7 +13,6 @@ SECTION_ORDER = (
     ("gap", "Evidence gaps"),
 )
 
-MARKDOWN_CONTROL_CHARACTERS = frozenset("\\`*_{}[]()#!<>|~")
 CANONICAL_GITHUB_SOURCE_URL_RE = re.compile(
     r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/"
     r"(?:issues|pull)/[1-9][0-9]*(?:#issuecomment-[1-9][0-9]*)?"
@@ -23,10 +22,12 @@ CANONICAL_GITHUB_SOURCE_URL_RE = re.compile(
 def _literal_text(value: str) -> str:
     """Render untrusted text inline without granting it Markdown or HTML structure."""
     normalized = re.sub(r"\s+", " ", value).strip()
-    return "".join(
-        f"\\{character}" if character in MARKDOWN_CONTROL_CHARACTERS else character
-        for character in normalized
+    longest_backtick_run = max(
+        (len(run) for run in re.findall(r"`+", normalized)),
+        default=0,
     )
+    delimiter = "`" * (longest_backtick_run + 1)
+    return f"{delimiter} {normalized} {delimiter}"
 
 
 def _source_link(label: str, url: str) -> str:
