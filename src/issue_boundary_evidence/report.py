@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import re
+
 from .models import Analysis, Evidence
 
 
@@ -11,25 +13,51 @@ SECTION_ORDER = (
     ("gap", "Evidence gaps"),
 )
 
+MARKDOWN_CONTROL_CHARACTERS = frozenset("\\`*_{}[]()#!<>|~")
+CANONICAL_GITHUB_SOURCE_URL_RE = re.compile(
+    r"https://github\.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/"
+    r"(?:issues|pull)/[1-9][0-9]*(?:#issuecomment-[1-9][0-9]*)?"
+)
+
+
+def _literal_text(value: str) -> str:
+    """Render untrusted text inline without granting it Markdown or HTML structure."""
+    normalized = re.sub(r"\s+", " ", value).strip()
+    return "".join(
+        f"\\{character}" if character in MARKDOWN_CONTROL_CHARACTERS else character
+        for character in normalized
+    )
+
+
+def _source_link(label: str, url: str) -> str:
+    """Link only canonical GitHub issue, pull-request, or issue-comment sources."""
+    rendered_label = _literal_text(label)
+    if CANONICAL_GITHUB_SOURCE_URL_RE.fullmatch(url):
+        return f"[{rendered_label}]({url})"
+    return f"{rendered_label} ({_literal_text(url)})"
+
 
 def _render_item(item: Evidence) -> list[str]:
-    lines = [f"- **{item.confidence.value}** — {item.claim}"]
+    lines = [f"- **{item.confidence.value}** — {_literal_text(item.claim)}"]
     for source in item.sources:
-        excerpt = source.excerpt.replace("\n", " ").replace("|", "\\|")
         lines.append(
-            f"  - Source: [{source.kind}]({source.url}), {source.location} — “{excerpt}”"
+            f"  - Source: {_source_link(source.kind, source.url)}, "
+            f"{_literal_text(source.location)} — “{_literal_text(source.excerpt)}”"
         )
     return lines
 
 
 def render_report(analysis: Analysis) -> str:
     issue = analysis.issue
+    issue_label = f"{issue.owner}/{issue.repo}#{issue.number}"
+    issue_link = _source_link(issue_label, issue.url)
+    metadata_link = _source_link("issue metadata", issue.url)
     lines = [
         "# Issue Boundary Evidence",
         "",
-        f"- Issue: [{issue.owner}/{issue.repo}#{issue.number}]({issue.url}) (source kind: issue metadata)",
-        f"- Title ([issue metadata]({issue.url})): {issue.title}",
-        f"- State at retrieval ([issue metadata]({issue.url})): {issue.state or 'unknown'}",
+        f"- Issue: {issue_link} (source kind: issue metadata)",
+        f"- Title ({metadata_link}): {_literal_text(issue.title)}",
+        f"- State at retrieval ({metadata_link}): {_literal_text(issue.state or 'unknown')}",
         "- Method: deterministic, read-only extraction from the issue and its comments",
         "",
     ]
@@ -53,9 +81,11 @@ def render_report(analysis: Analysis) -> str:
     lines.extend(["## Retrieved same-repository references", ""])
     if analysis.related_issues:
         for related in analysis.related_issues:
+            related_label = f"{related.owner}/{related.repo}#{related.number}: {related.title}"
             lines.append(
-                f"- **fact** — [{related.owner}/{related.repo}#{related.number}: {related.title}]({related.url}) "
-                f"(source kind: related issue metadata; structured location: title and state={related.state})"
+                f"- **fact** — {_source_link(related_label, related.url)} "
+                "(source kind: related issue metadata; structured location: title and "
+                f"state={_literal_text(related.state)})"
             )
     else:
         lines.append("- No justified same-repository issue or pull-request references were retrieved.")
