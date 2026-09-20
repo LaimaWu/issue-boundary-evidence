@@ -1,0 +1,52 @@
+name: Issue Boundary Evidence
+description: Generate a read-only Markdown evidence report for a public GitHub issue
+
+inputs:
+  issue-url:
+    description: Public GitHub issue URL to analyze
+    required: true
+  github-token:
+    description: Optional GitHub token used only to raise public API rate limits
+    required: false
+    default: ""
+
+outputs:
+  report-path:
+    description: Absolute path to the generated Markdown report
+    value: ${{ steps.report.outputs.report-path }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Install Issue Boundary Evidence
+      shell: bash
+      run: python -m pip install --disable-pip-version-check --no-cache-dir "${GITHUB_ACTION_PATH}"
+
+    - name: Generate read-only evidence report
+      id: report
+      shell: bash
+      env:
+        IBE_ISSUE_URL: ${{ inputs.issue-url }}
+        IBE_GITHUB_TOKEN: ${{ inputs.github-token }}
+      run: |
+        set -euo pipefail
+
+        report_path="${RUNNER_TEMP}/issue-boundary-evidence-report.md"
+        if [[ -n "${IBE_GITHUB_TOKEN}" ]]; then
+          export GITHUB_TOKEN="${IBE_GITHUB_TOKEN}"
+        else
+          unset GITHUB_TOKEN
+        fi
+
+        issue-boundary-evidence "${IBE_ISSUE_URL}" --output "${report_path}"
+        test -s "${report_path}"
+
+        cat "${report_path}" >> "${GITHUB_STEP_SUMMARY}"
+        test -s "${GITHUB_STEP_SUMMARY}"
+
+        echo "report-path=${report_path}" >> "${GITHUB_OUTPUT}"

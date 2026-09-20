@@ -48,10 +48,10 @@ python -m pip install issue-boundary-evidence
 
 ## Alternative: install from the GitHub release
 
-Install the wheel attached to the v0.1.2 GitHub release:
+Install the wheel attached to the v0.1.3 GitHub release:
 
 ```bash
-python -m pip install https://github.com/LaimaWu/issue-boundary-evidence/releases/download/v0.1.2/issue_boundary_evidence-0.1.2-py3-none-any.whl
+python -m pip install https://github.com/LaimaWu/issue-boundary-evidence/releases/download/v0.1.3/issue_boundary_evidence-0.1.3-py3-none-any.whl
 ```
 
 ## Contributor install from source
@@ -83,6 +83,23 @@ Run without installing:
 ```bash
 PYTHONPATH=src python -m issue_boundary_evidence.cli https://github.com/OWNER/REPO/issues/123
 ```
+
+## GitHub Action
+
+Use the versioned release tag in a workflow with read-only repository permissions:
+
+```yaml
+permissions:
+  contents: read
+
+steps:
+  - id: evidence
+    uses: LaimaWu/issue-boundary-evidence@v0.1.3
+    with:
+      issue-url: https://github.com/OWNER/REPO/issues/123
+```
+
+The action installs and runs the Issue Boundary Evidence source bundled with the selected Action ref. It writes the normal Markdown report to `${{ steps.evidence.outputs.report-path }}` and appends the same report to the job summary. The optional `github-token` input may be supplied only to raise GitHub's public API rate limit; it is not required for ordinary public issues. The action is consumed directly from the versioned repository ref and is not published to GitHub Marketplace.
 
 ## Test
 
