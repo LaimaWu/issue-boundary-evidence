@@ -12,12 +12,19 @@ license = "Apache-2.0"
 authors = [{ name = "Issue Boundary Evidence contributors" }]
 dependencies = []
 
+[project.optional-dependencies]
+longitudinal = ["jsonschema>=4.18,<5"]
+
 [project.urls]
 Repository = "https://github.com/LaimaWu/issue-boundary-evidence"
 Issues = "https://github.com/LaimaWu/issue-boundary-evidence/issues"
 
 [project.scripts]
 issue-boundary-evidence = "issue_boundary_evidence.cli:main"
+ibe-longitudinal = "ibe_longitudinal.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+ibe_longitudinal = ["schema.json"]

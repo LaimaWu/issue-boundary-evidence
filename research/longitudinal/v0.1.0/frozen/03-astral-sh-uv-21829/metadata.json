@@ -1,0 +1,15 @@
+{
+  "case_index": 3,
+  "repository": "astral-sh/uv",
+  "issue_number": 21829,
+  "issue_url": "https://github.com/astral-sh/uv/issues/21829",
+  "snapshot_started_utc": "2026-09-19T11:43:17Z",
+  "snapshot_completed_utc": "2026-09-19T11:43:20Z",
+  "issue_state": "open",
+  "issue_http_status": 200,
+  "comments_pages": 1,
+  "comments_complete": "yes",
+  "cli_exit_code": 0,
+  "report_present": "yes",
+  "github_api_mode": "anonymous"
+}

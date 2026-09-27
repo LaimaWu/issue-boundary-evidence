@@ -1,0 +1,15 @@
+{
+  "case_index": 9,
+  "repository": "psf/requests",
+  "issue_number": 7620,
+  "issue_url": "https://github.com/psf/requests/issues/7620",
+  "snapshot_started_utc": "2026-09-19T11:43:34Z",
+  "snapshot_completed_utc": "2026-09-19T11:43:37Z",
+  "issue_state": "open",
+  "issue_http_status": 200,
+  "comments_pages": 1,
+  "comments_complete": "yes",
+  "cli_exit_code": 0,
+  "report_present": "yes",
+  "github_api_mode": "anonymous"
+}

@@ -142,3 +142,11 @@ Experimental deterministic CLI. See [`EVAL_NOTES.md`](EVAL_NOTES.md) for the ret
 ## License
 
 Apache-2.0.
+
+## Independent longitudinal research layer
+
+An optional, separate journal records frozen-report provenance, post-freeze
+observations, five-dimensional adjudication and unresolved/final outcomes.
+It does not change engine behavior or infer research judgments. See
+[the longitudinal contract and CLI guide](docs/LONGITUDINAL.md) for installation,
+append-only history, validation, source-import status and report generation.

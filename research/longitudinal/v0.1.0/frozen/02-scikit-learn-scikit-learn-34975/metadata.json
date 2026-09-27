@@ -1,0 +1,15 @@
+{
+  "case_index": 2,
+  "repository": "scikit-learn/scikit-learn",
+  "issue_number": 34975,
+  "issue_url": "https://github.com/scikit-learn/scikit-learn/issues/34975",
+  "snapshot_started_utc": "2026-09-19T11:43:15Z",
+  "snapshot_completed_utc": "2026-09-19T11:43:17Z",
+  "issue_state": "open",
+  "issue_http_status": 200,
+  "comments_pages": 1,
+  "comments_complete": "yes",
+  "cli_exit_code": 0,
+  "report_present": "yes",
+  "github_api_mode": "anonymous"
+}

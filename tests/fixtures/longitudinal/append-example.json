@@ -1,0 +1,148 @@
+{
+  "artifacts": [],
+  "events": [
+    {
+      "id": "ev-1",
+      "case_id": "case-a",
+      "recorded_at": "2026-01-02T00:00:00Z",
+      "actor": "synthetic-researcher",
+      "kind": "evidence",
+      "payload": {
+        "kind": "maintainer_comment",
+        "occurred_at": "2026-01-02T00:00:00Z",
+        "observed_at": "2026-01-02T00:00:00Z",
+        "temporal_scope": "post_freeze",
+        "epistemic_status": "maintainer_confirmed_fact",
+        "statement": "Synthetic confirmation.",
+        "source": {
+          "url": "https://github.com/example/synthetic/issues/1#issuecomment-1",
+          "locator": "comment 1",
+          "excerpt": "Component A fails.",
+          "author": "synthetic-maintainer",
+          "author_role": "maintainer",
+          "artifact_id": null
+        }
+      }
+    },
+    {
+      "id": "dim-phenomenon",
+      "case_id": "case-a",
+      "recorded_at": "2026-01-02T00:00:00Z",
+      "actor": "synthetic-researcher",
+      "kind": "adjudication",
+      "payload": {
+        "dimension": "phenomenon",
+        "verdict": "supported",
+        "epistemic_status": "researcher_inference",
+        "frozen_claim": "Frozen synthetic claim.",
+        "rationale": "Synthetic reasoning based on ev-1.",
+        "evidence_ids": [
+          "ev-1"
+        ],
+        "unresolved_questions": [],
+        "supersedes": null
+      }
+    },
+    {
+      "id": "dim-cause",
+      "case_id": "case-a",
+      "recorded_at": "2026-01-02T00:00:00Z",
+      "actor": "synthetic-researcher",
+      "kind": "adjudication",
+      "payload": {
+        "dimension": "cause",
+        "verdict": "supported",
+        "epistemic_status": "researcher_inference",
+        "frozen_claim": "Frozen synthetic claim.",
+        "rationale": "Synthetic reasoning based on ev-1.",
+        "evidence_ids": [
+          "ev-1"
+        ],
+        "unresolved_questions": [],
+        "supersedes": null
+      }
+    },
+    {
+      "id": "dim-ownership",
+      "case_id": "case-a",
+      "recorded_at": "2026-01-02T00:00:00Z",
+      "actor": "synthetic-researcher",
+      "kind": "adjudication",
+      "payload": {
+        "dimension": "ownership",
+        "verdict": "supported",
+        "epistemic_status": "researcher_inference",
+        "frozen_claim": "Frozen synthetic claim.",
+        "rationale": "Synthetic reasoning based on ev-1.",
+        "evidence_ids": [
+          "ev-1"
+        ],
+        "unresolved_questions": [],
+        "supersedes": null
+      }
+    },
+    {
+      "id": "dim-severity",
+      "case_id": "case-a",
+      "recorded_at": "2026-01-02T00:00:00Z",
+      "actor": "synthetic-researcher",
+      "kind": "adjudication",
+      "payload": {
+        "dimension": "severity",
+        "verdict": "supported",
+        "epistemic_status": "researcher_inference",
+        "frozen_claim": "Frozen synthetic claim.",
+        "rationale": "Synthetic reasoning based on ev-1.",
+        "evidence_ids": [
+          "ev-1"
+        ],
+        "unresolved_questions": [],
+        "supersedes": null
+      }
+    },
+    {
+      "id": "dim-fix_trajectory",
+      "case_id": "case-a",
+      "recorded_at": "2026-01-02T00:00:00Z",
+      "actor": "synthetic-researcher",
+      "kind": "adjudication",
+      "payload": {
+        "dimension": "fix_trajectory",
+        "verdict": "supported",
+        "epistemic_status": "researcher_inference",
+        "frozen_claim": "Frozen synthetic claim.",
+        "rationale": "Synthetic reasoning based on ev-1.",
+        "evidence_ids": [
+          "ev-1"
+        ],
+        "unresolved_questions": [],
+        "supersedes": null
+      }
+    },
+    {
+      "id": "out-1",
+      "case_id": "case-a",
+      "recorded_at": "2026-01-02T00:00:00Z",
+      "actor": "synthetic-researcher",
+      "kind": "outcome",
+      "payload": {
+        "status": "final",
+        "issue_state": "closed",
+        "resolution": "fixed",
+        "rationale": "Explicit synthetic research decision.",
+        "evidence_ids": [
+          "ev-1"
+        ],
+        "dimension_ids": {
+          "phenomenon": "dim-phenomenon",
+          "cause": "dim-cause",
+          "ownership": "dim-ownership",
+          "severity": "dim-severity",
+          "fix_trajectory": "dim-fix_trajectory"
+        },
+        "unresolved_questions": [],
+        "supersedes": null
+      }
+    }
+  ]
+}

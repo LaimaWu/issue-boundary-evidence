@@ -1,0 +1,32 @@
+[
+  {
+    "id": "study-20260927-adjudication-original-docx",
+    "path": "sources/study-2026-09-27/adjudication-original.docx",
+    "sha256": "2fd1e4f1c18625a0f304f508914984059f1f6ab68f6816c7a7248512219b5134",
+    "kind": "research_dataset"
+  },
+  {
+    "id": "study-20260927-research-original-docx",
+    "path": "sources/study-2026-09-27/research-original.docx",
+    "sha256": "43063543f868268d1c30b3b983a69712e36343a1a334863a7a68aa529e45e7a5",
+    "kind": "research_report"
+  },
+  {
+    "id": "study-20260927-adjudication-recovered-json",
+    "path": "sources/study-2026-09-27/adjudication-recovered.json",
+    "sha256": "c6d7b269e73a785e20fe8a977b95026509d78f136992b8cb76730dbb93a3763a",
+    "kind": "research_dataset"
+  },
+  {
+    "id": "study-20260927-research-recovered-md",
+    "path": "sources/study-2026-09-27/research-recovered.md",
+    "sha256": "16af924ca3ec2ea8d3764bb9e172a2e146392cd35ba1bf1143da1e3be63b93ad",
+    "kind": "research_report"
+  },
+  {
+    "id": "study-20260927-extraction-audit-json",
+    "path": "sources/study-2026-09-27/extraction-audit.json",
+    "sha256": "548b30e33903cdf9e93f04a2fd750f64b68bc7653644f7c12a62d0b0e6350987",
+    "kind": "evidence_snapshot"
+  }
+]

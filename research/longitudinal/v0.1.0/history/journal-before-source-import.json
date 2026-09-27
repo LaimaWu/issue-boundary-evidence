@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "ibe-v0.1.0-prospective",
+  "frozen_release": "v0.1.0",
+  "artifacts": [
+    {
+      "id": "freeze-archive",
+      "path": "sources/freeze.zip",
+      "sha256": "f398678f387c4b37e4d08285a0637d70f653aa2aa536e032d58b06beb20ec070",
+      "kind": "freeze_archive"
+    },
+    {
+      "id": "freeze-checksums",
+      "path": "sources/SHA256SUMS.txt",
+      "sha256": "3616906f8dd402fa8869a7d434d302e0640e21dee73c53f2d0b95ae58729fe47",
+      "kind": "freeze_manifest"
+    },
+    {
+      "id": "01-scikit-learn-scikit-learn-34977-report",
+      "path": "frozen/01-scikit-learn-scikit-learn-34977/report.md",
+      "sha256": "b6aa3961affa123b9db077ddfe6b55b3d7b315183df5d5094272d2e8b83ebf9d",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "01-scikit-learn-scikit-learn-34977-metadata",
+      "path": "frozen/01-scikit-learn-scikit-learn-34977/metadata.json",
+      "sha256": "1032fafa059a9b98a79d8c25dc41e8320dc89f683d43b5c07e203ae798f37b19",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "02-scikit-learn-scikit-learn-34975-report",
+      "path": "frozen/02-scikit-learn-scikit-learn-34975/report.md",
+      "sha256": "27ff56a24e509e25a3e589f48d9ac6b903ca22ba1326c77cb62c5b6f7f6f10be",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "02-scikit-learn-scikit-learn-34975-metadata",
+      "path": "frozen/02-scikit-learn-scikit-learn-34975/metadata.json",
+      "sha256": "e01c408b84c3f0acfdd710f8454eca1857f7783232e2b41cbdd33e3c2496e437",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "03-astral-sh-uv-21829-report",
+      "path": "frozen/03-astral-sh-uv-21829/report.md",
+      "sha256": "4f3423d816b53256fc521ff7fcb1c836ae06249b38f91e48ec35029fce002c4b",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "03-astral-sh-uv-21829-metadata",
+      "path": "frozen/03-astral-sh-uv-21829/metadata.json",
+      "sha256": "891e6c405654c036046a7fe17f45a7fa6fa311309776a1ff4714b0151f6c3b7e",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "04-astral-sh-uv-21720-report",
+      "path": "frozen/04-astral-sh-uv-21720/report.md",
+      "sha256": "b1c7e815fbf05d19b634eedc3cca80cc650796f7d3f7202a27a5a889f3f65a31",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "04-astral-sh-uv-21720-metadata",
+      "path": "frozen/04-astral-sh-uv-21720/metadata.json",
+      "sha256": "7b39712b7993728c6dc35db96f6e26e3eba096ca01f8bf0a059b62d960365c2d",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "05-matplotlib-matplotlib-32339-report",
+      "path": "frozen/05-matplotlib-matplotlib-32339/report.md",
+      "sha256": "46e9615bee88cfffe76d902ba0d4ba00f2c8890b5d2fee5a2cfa2fbf0ac0f8b6",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "05-matplotlib-matplotlib-32339-metadata",
+      "path": "frozen/05-matplotlib-matplotlib-32339/metadata.json",
+      "sha256": "b774bcadd77bc9ed8f9c65c7fc616d3bad6eb4a10cafbce97976683d1483c042",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "06-matplotlib-matplotlib-32329-report",
+      "path": "frozen/06-matplotlib-matplotlib-32329/report.md",
+      "sha256": "426e5fe4f1a325a8f83217642f8cc0a63eb9dc9c98e3e4a86902820f03a22f00",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "06-matplotlib-matplotlib-32329-metadata",
+      "path": "frozen/06-matplotlib-matplotlib-32329/metadata.json",
+      "sha256": "ae5ca620620002526fed95124aa6cd883c7793ef8370b439fd5e35988667d434",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "07-pydantic-pydantic-13835-report",
+      "path": "frozen/07-pydantic-pydantic-13835/report.md",
+      "sha256": "00d8100444c6a2889303acd034a2468ba9c8c770bac670ad82f18907bb2b2bbf",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "07-pydantic-pydantic-13835-metadata",
+      "path": "frozen/07-pydantic-pydantic-13835/metadata.json",
+      "sha256": "23dc59d6b4222fecd30cf427395843c1653140580eadf5f811c5260874ac09da",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "08-pydantic-pydantic-13834-report",
+      "path": "frozen/08-pydantic-pydantic-13834/report.md",
+      "sha256": "a3febe6be5fd4e5878863a2e1ddfe0093cce1697b51a7b32e7564c741a812563",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "08-pydantic-pydantic-13834-metadata",
+      "path": "frozen/08-pydantic-pydantic-13834/metadata.json",
+      "sha256": "548a3ceffa6e31a35e3682064791fa0ce35f6cea97335370e781380ba14093b0",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "09-psf-requests-7620-report",
+      "path": "frozen/09-psf-requests-7620/report.md",
+      "sha256": "152f3d0b3165495b42e834f68c8889c72b5b4e2402dfbb93dc88fed323dda591",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "09-psf-requests-7620-metadata",
+      "path": "frozen/09-psf-requests-7620/metadata.json",
+      "sha256": "833c1d5b2bde9980b40ab69da84c3c488a759d8ff3c70c96b887c41c5bf180a2",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "10-psf-requests-7610-report",
+      "path": "frozen/10-psf-requests-7610/report.md",
+      "sha256": "b0a1a759232f2a7a19b413fd7e91b43e2d5fdecb0f65af3583e4ea015cccb6cb",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "10-psf-requests-7610-metadata",
+      "path": "frozen/10-psf-requests-7610/metadata.json",
+      "sha256": "a7cb7324a90327bcd2c9cb75f8f43f0ed85b972d3bd86cd8cdb1adac90f44876",
+      "kind": "frozen_metadata"
+    }
+  ],
+  "cases": [
+    {
+      "id": "01-scikit-learn-scikit-learn-34977",
+      "issue_url": "https://github.com/scikit-learn/scikit-learn/issues/34977",
+      "frozen_at": "2026-09-19T11:43:15Z",
+      "report_artifact_id": "01-scikit-learn-scikit-learn-34977-report",
+      "metadata_artifact_id": "01-scikit-learn-scikit-learn-34977-metadata"
+    },
+    {
+      "id": "02-scikit-learn-scikit-learn-34975",
+      "issue_url": "https://github.com/scikit-learn/scikit-learn/issues/34975",
+      "frozen_at": "2026-09-19T11:43:17Z",
+      "report_artifact_id": "02-scikit-learn-scikit-learn-34975-report",
+      "metadata_artifact_id": "02-scikit-learn-scikit-learn-34975-metadata"
+    },
+    {
+      "id": "03-astral-sh-uv-21829",
+      "issue_url": "https://github.com/astral-sh/uv/issues/21829",
+      "frozen_at": "2026-09-19T11:43:20Z",
+      "report_artifact_id": "03-astral-sh-uv-21829-report",
+      "metadata_artifact_id": "03-astral-sh-uv-21829-metadata"
+    },
+    {
+      "id": "04-astral-sh-uv-21720",
+      "issue_url": "https://github.com/astral-sh/uv/issues/21720",
+      "frozen_at": "2026-09-19T11:43:22Z",
+      "report_artifact_id": "04-astral-sh-uv-21720-report",
+      "metadata_artifact_id": "04-astral-sh-uv-21720-metadata"
+    },
+    {
+      "id": "05-matplotlib-matplotlib-32339",
+      "issue_url": "https://github.com/matplotlib/matplotlib/issues/32339",
+      "frozen_at": "2026-09-19T11:43:25Z",
+      "report_artifact_id": "05-matplotlib-matplotlib-32339-report",
+      "metadata_artifact_id": "05-matplotlib-matplotlib-32339-metadata"
+    },
+    {
+      "id": "06-matplotlib-matplotlib-32329",
+      "issue_url": "https://github.com/matplotlib/matplotlib/issues/32329",
+      "frozen_at": "2026-09-19T11:43:28Z",
+      "report_artifact_id": "06-matplotlib-matplotlib-32329-report",
+      "metadata_artifact_id": "06-matplotlib-matplotlib-32329-metadata"
+    },
+    {
+      "id": "07-pydantic-pydantic-13835",
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13835",
+      "frozen_at": "2026-09-19T11:43:30Z",
+      "report_artifact_id": "07-pydantic-pydantic-13835-report",
+      "metadata_artifact_id": "07-pydantic-pydantic-13835-metadata"
+    },
+    {
+      "id": "08-pydantic-pydantic-13834",
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13834",
+      "frozen_at": "2026-09-19T11:43:34Z",
+      "report_artifact_id": "08-pydantic-pydantic-13834-report",
+      "metadata_artifact_id": "08-pydantic-pydantic-13834-metadata"
+    },
+    {
+      "id": "09-psf-requests-7620",
+      "issue_url": "https://github.com/psf/requests/issues/7620",
+      "frozen_at": "2026-09-19T11:43:37Z",
+      "report_artifact_id": "09-psf-requests-7620-report",
+      "metadata_artifact_id": "09-psf-requests-7620-metadata"
+    },
+    {
+      "id": "10-psf-requests-7610",
+      "issue_url": "https://github.com/psf/requests/issues/7610",
+      "frozen_at": "2026-09-19T11:43:41Z",
+      "report_artifact_id": "10-psf-requests-7610-report",
+      "metadata_artifact_id": "10-psf-requests-7610-metadata"
+    }
+  ],
+  "events": []
+}
