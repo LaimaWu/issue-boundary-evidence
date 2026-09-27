@@ -1,0 +1,402 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "ibe-v0.1.0-prospective-cohort2-2026-09-28",
+  "frozen_release": "v0.1.0",
+  "artifacts": [
+    {
+      "id": "freeze-archive",
+      "path": "sources/freeze.zip",
+      "sha256": "be0d203542a3fa77d286e20a54d127264d1f13e45643efc3781d03adfb495d31",
+      "kind": "freeze_archive"
+    },
+    {
+      "id": "freeze-checksums",
+      "path": "sources/SHA256SUMS.txt",
+      "sha256": "1fa74bbdb00bf82d4018002d3c8cc7bd6df5ac710220a8daaf781f2f11b71029",
+      "kind": "freeze_manifest"
+    },
+    {
+      "id": "01-python-cpython-158287-report",
+      "path": "frozen/01-python-cpython-158287/report.md",
+      "sha256": "5f0a870c79e2d8937ecc819647c5e43afa4ab1654aabfb1fc3191bb5f06c1692",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "01-python-cpython-158287-metadata",
+      "path": "frozen/01-python-cpython-158287/metadata.json",
+      "sha256": "ffa41762ba45b16bee12130378e4b4a9374f9a7c2d845f1368a3a3a5dfed4fd2",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "02-pypa-pip-14315-report",
+      "path": "frozen/02-pypa-pip-14315/report.md",
+      "sha256": "35aceac1ad96ee8db70d11ee8e86c02ae30adf4dc5d9279a25e9f085892c9bae",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "02-pypa-pip-14315-metadata",
+      "path": "frozen/02-pypa-pip-14315/metadata.json",
+      "sha256": "f22aa7705f493aaf471c72741283a8b8b1947c5a3c9b6b85d2f102a00c7b2989",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "03-astral-sh-uv-22006-report",
+      "path": "frozen/03-astral-sh-uv-22006/report.md",
+      "sha256": "ae22b75ac64f56dba022536304c9dd08557a50876c5b9bf4bea134f799bcd12a",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "03-astral-sh-uv-22006-metadata",
+      "path": "frozen/03-astral-sh-uv-22006/metadata.json",
+      "sha256": "36a245b18d7dcd9e693ee02642f0026a6e47f41f0ed07f1fbbe419a171ad1a7a",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "04-psf-requests-7630-report",
+      "path": "frozen/04-psf-requests-7630/report.md",
+      "sha256": "dfb8471e136fe32d0e809dfb297a9589df0e443631a3e4c16612b3d828ac8003",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "04-psf-requests-7630-metadata",
+      "path": "frozen/04-psf-requests-7630/metadata.json",
+      "sha256": "eeb27da5f3419b079b276e95dd15222f992302e793912e23af4ba1a05b5d4f24",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "05-pydantic-pydantic-13869-report",
+      "path": "frozen/05-pydantic-pydantic-13869/report.md",
+      "sha256": "3149d8860b405980edd584507720a0ecc77e9c362094c7f53df9e9404c976d76",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "05-pydantic-pydantic-13869-metadata",
+      "path": "frozen/05-pydantic-pydantic-13869/metadata.json",
+      "sha256": "bfe84e828cac84ffffeeb69f06d47f8f0c40eb583ad87c92aa8324a509a464db",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "06-scikit-learn-scikit-learn-35032-report",
+      "path": "frozen/06-scikit-learn-scikit-learn-35032/report.md",
+      "sha256": "41e8c28bab70f878bdd2826ee0ee9d24bdf269c4f0c8e88afae6fefb6586a928",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "06-scikit-learn-scikit-learn-35032-metadata",
+      "path": "frozen/06-scikit-learn-scikit-learn-35032/metadata.json",
+      "sha256": "1bc635125e6d73ea036d96d07808100326cdc2b3f8713b5d194b138f1497708b",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "07-matplotlib-matplotlib-32393-report",
+      "path": "frozen/07-matplotlib-matplotlib-32393/report.md",
+      "sha256": "af8a96bc9b79fcfef5a871939bf31e443e883bed506160a2732090a255b3af52",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "07-matplotlib-matplotlib-32393-metadata",
+      "path": "frozen/07-matplotlib-matplotlib-32393/metadata.json",
+      "sha256": "3b6d9a9d5de8252719cadca4d51200ff7c38da88db89b4a432c26fc0d1c79f47",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "08-pandas-dev-pandas-69486-report",
+      "path": "frozen/08-pandas-dev-pandas-69486/report.md",
+      "sha256": "d6f06784f1cd25438bdfb40dda64c97dd98471e181fb85ec55bf5fbd063bd4bf",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "08-pandas-dev-pandas-69486-metadata",
+      "path": "frozen/08-pandas-dev-pandas-69486/metadata.json",
+      "sha256": "67d6ac7891702267093c446eddabdaad17a9797d5e24fa04b0eaaab6ead4775b",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "09-numpy-numpy-32794-report",
+      "path": "frozen/09-numpy-numpy-32794/report.md",
+      "sha256": "f92a68fc75503ea2e0685fb15f80b84b70637308bc8c19e1e1b39e37295799a1",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "09-numpy-numpy-32794-metadata",
+      "path": "frozen/09-numpy-numpy-32794/metadata.json",
+      "sha256": "a195ffbd12f8316449d56cf9326e6c27dc14be057dff11f595b5660c08691015",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "10-pytest-dev-pytest-15099-report",
+      "path": "frozen/10-pytest-dev-pytest-15099/report.md",
+      "sha256": "73e5658adfd53fb481510264ab23f3358808ae8209aaa41dcdcdb2ea9407f4ea",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "10-pytest-dev-pytest-15099-metadata",
+      "path": "frozen/10-pytest-dev-pytest-15099/metadata.json",
+      "sha256": "d73fd4feb8434b7ea505b67e02b619cb6dd70e731d9b4a67979ccffb6840e6ff",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "11-microsoft-TypeScript-64477-report",
+      "path": "frozen/11-microsoft-TypeScript-64477/report.md",
+      "sha256": "f481a2b8dc68fc8162fe6fe1aeeeca586808b67d4ef51dfccd5550900c24b05f",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "11-microsoft-TypeScript-64477-metadata",
+      "path": "frozen/11-microsoft-TypeScript-64477/metadata.json",
+      "sha256": "19ae0a5d7db87fe229f04af48b390039e3a83e8c5642f7695557564cb15364bc",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "12-nodejs-node-66349-report",
+      "path": "frozen/12-nodejs-node-66349/report.md",
+      "sha256": "289850ac7c24e0111ed6a644b8784d27b955d792bfb89c4d59773b982db4d863",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "12-nodejs-node-66349-metadata",
+      "path": "frozen/12-nodejs-node-66349/metadata.json",
+      "sha256": "b45573dba30ad2abcf3ea26d26c4d5432726d9d2f36c5e548611d0ad7b516e55",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "13-denoland-deno-36913-report",
+      "path": "frozen/13-denoland-deno-36913/report.md",
+      "sha256": "4de76074cd4172679650674deed2dc593383feba15ce6b5e4271498361ce2e1b",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "13-denoland-deno-36913-metadata",
+      "path": "frozen/13-denoland-deno-36913/metadata.json",
+      "sha256": "bcbc719359ca391432e3e28f9408a6216502f55e2c7c508c7cb97b516ef4a898",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "14-oven-sh-bun-44134-report",
+      "path": "frozen/14-oven-sh-bun-44134/report.md",
+      "sha256": "d426478c630dfbb8fb2c36a9e15e90f5360aa84205f3dedd45aac14bfb7ed5aa",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "14-oven-sh-bun-44134-metadata",
+      "path": "frozen/14-oven-sh-bun-44134/metadata.json",
+      "sha256": "ed80b06b638837259c6954c75a0c049efa2dcf03149c61913b730b9f4d158995",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "15-vitejs-vite-23588-report",
+      "path": "frozen/15-vitejs-vite-23588/report.md",
+      "sha256": "1d42a6326f2b9240242087f2bdffaac5fb8492cfc064cc0f6608c9fca81bd58b",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "15-vitejs-vite-23588-metadata",
+      "path": "frozen/15-vitejs-vite-23588/metadata.json",
+      "sha256": "383e2d5fc97dfe7a5bf6211bd74df317de2ca9e169ac786c22b582ac59fe33f4",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "16-vercel-next.js-99318-report",
+      "path": "frozen/16-vercel-next.js-99318/report.md",
+      "sha256": "4ea7a1ffd85702d9ea9dd6b056f64ff2dad21a1a4987f551d595e2f5f925ef1b",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "16-vercel-next.js-99318-metadata",
+      "path": "frozen/16-vercel-next.js-99318/metadata.json",
+      "sha256": "635517ceff366946b657ae4a596ad404cf1a0280374e6b373e6acc0822f3b04d",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "17-microsoft-vscode-338203-report",
+      "path": "frozen/17-microsoft-vscode-338203/report.md",
+      "sha256": "1b29d12dbb00b2169e278ecb5990721b995c35ffadd1955aa4448d4e641d5967",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "17-microsoft-vscode-338203-metadata",
+      "path": "frozen/17-microsoft-vscode-338203/metadata.json",
+      "sha256": "8e74acf134e2333b3924c30cdb045c5cb4356ffedad4b20e9304d4047ac20543",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "18-rust-lang-cargo-17519-report",
+      "path": "frozen/18-rust-lang-cargo-17519/report.md",
+      "sha256": "69289cc480e4e0550b3c08a891e306ca2fd1f160926f5ffb2798861fe44caded",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "18-rust-lang-cargo-17519-metadata",
+      "path": "frozen/18-rust-lang-cargo-17519/metadata.json",
+      "sha256": "5e6ae44b797f6f71628df334c3da780a4edd7258afe20fee44fc3f7182146bc2",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "19-tokio-rs-tokio-8516-report",
+      "path": "frozen/19-tokio-rs-tokio-8516/report.md",
+      "sha256": "00730988672ab2a16bf4e87e01c8505ea05a8e441032f67ece1884288bec3c43",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "19-tokio-rs-tokio-8516-metadata",
+      "path": "frozen/19-tokio-rs-tokio-8516/metadata.json",
+      "sha256": "abb4451195c2f18ac6df1ffbfa17d6ef10966ae8a47022010869521aa8548d10",
+      "kind": "frozen_metadata"
+    },
+    {
+      "id": "20-golang-go-81787-report",
+      "path": "frozen/20-golang-go-81787/report.md",
+      "sha256": "b2d0d7ad4d6a85de7e9aa7cc898d8596ee6157ec6f63c5705b377b576ce93f43",
+      "kind": "frozen_report"
+    },
+    {
+      "id": "20-golang-go-81787-metadata",
+      "path": "frozen/20-golang-go-81787/metadata.json",
+      "sha256": "5f0ca8be6fb8f3c6c56e63a6c08959a6944cabac7b013ea691a60a48a87a8ad6",
+      "kind": "frozen_metadata"
+    }
+  ],
+  "cases": [
+    {
+      "id": "01-python-cpython-158287",
+      "issue_url": "https://github.com/python/cpython/issues/158287",
+      "frozen_at": "2026-09-27T16:44:28.543Z",
+      "report_artifact_id": "01-python-cpython-158287-report",
+      "metadata_artifact_id": "01-python-cpython-158287-metadata"
+    },
+    {
+      "id": "02-pypa-pip-14315",
+      "issue_url": "https://github.com/pypa/pip/issues/14315",
+      "frozen_at": "2026-09-27T16:44:28.137Z",
+      "report_artifact_id": "02-pypa-pip-14315-report",
+      "metadata_artifact_id": "02-pypa-pip-14315-metadata"
+    },
+    {
+      "id": "03-astral-sh-uv-22006",
+      "issue_url": "https://github.com/astral-sh/uv/issues/22006",
+      "frozen_at": "2026-09-27T16:44:28.350Z",
+      "report_artifact_id": "03-astral-sh-uv-22006-report",
+      "metadata_artifact_id": "03-astral-sh-uv-22006-metadata"
+    },
+    {
+      "id": "04-psf-requests-7630",
+      "issue_url": "https://github.com/psf/requests/issues/7630",
+      "frozen_at": "2026-09-27T16:44:28.122Z",
+      "report_artifact_id": "04-psf-requests-7630-report",
+      "metadata_artifact_id": "04-psf-requests-7630-metadata"
+    },
+    {
+      "id": "05-pydantic-pydantic-13869",
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13869",
+      "frozen_at": "2026-09-27T16:44:28.927Z",
+      "report_artifact_id": "05-pydantic-pydantic-13869-report",
+      "metadata_artifact_id": "05-pydantic-pydantic-13869-metadata"
+    },
+    {
+      "id": "06-scikit-learn-scikit-learn-35032",
+      "issue_url": "https://github.com/scikit-learn/scikit-learn/issues/35032",
+      "frozen_at": "2026-09-27T16:44:28.919Z",
+      "report_artifact_id": "06-scikit-learn-scikit-learn-35032-report",
+      "metadata_artifact_id": "06-scikit-learn-scikit-learn-35032-metadata"
+    },
+    {
+      "id": "07-matplotlib-matplotlib-32393",
+      "issue_url": "https://github.com/matplotlib/matplotlib/issues/32393",
+      "frozen_at": "2026-09-27T16:44:28.911Z",
+      "report_artifact_id": "07-matplotlib-matplotlib-32393-report",
+      "metadata_artifact_id": "07-matplotlib-matplotlib-32393-metadata"
+    },
+    {
+      "id": "08-pandas-dev-pandas-69486",
+      "issue_url": "https://github.com/pandas-dev/pandas/issues/69486",
+      "frozen_at": "2026-09-27T16:44:28.953Z",
+      "report_artifact_id": "08-pandas-dev-pandas-69486-report",
+      "metadata_artifact_id": "08-pandas-dev-pandas-69486-metadata"
+    },
+    {
+      "id": "09-numpy-numpy-32794",
+      "issue_url": "https://github.com/numpy/numpy/issues/32794",
+      "frozen_at": "2026-09-27T16:44:29.080Z",
+      "report_artifact_id": "09-numpy-numpy-32794-report",
+      "metadata_artifact_id": "09-numpy-numpy-32794-metadata"
+    },
+    {
+      "id": "10-pytest-dev-pytest-15099",
+      "issue_url": "https://github.com/pytest-dev/pytest/issues/15099",
+      "frozen_at": "2026-09-27T16:44:29.154Z",
+      "report_artifact_id": "10-pytest-dev-pytest-15099-report",
+      "metadata_artifact_id": "10-pytest-dev-pytest-15099-metadata"
+    },
+    {
+      "id": "11-microsoft-TypeScript-64477",
+      "issue_url": "https://github.com/microsoft/TypeScript/issues/64477",
+      "frozen_at": "2026-09-27T16:44:29.425Z",
+      "report_artifact_id": "11-microsoft-TypeScript-64477-report",
+      "metadata_artifact_id": "11-microsoft-TypeScript-64477-metadata"
+    },
+    {
+      "id": "12-nodejs-node-66349",
+      "issue_url": "https://github.com/nodejs/node/issues/66349",
+      "frozen_at": "2026-09-27T16:44:29.424Z",
+      "report_artifact_id": "12-nodejs-node-66349-report",
+      "metadata_artifact_id": "12-nodejs-node-66349-metadata"
+    },
+    {
+      "id": "13-denoland-deno-36913",
+      "issue_url": "https://github.com/denoland/deno/issues/36913",
+      "frozen_at": "2026-09-27T16:44:29.520Z",
+      "report_artifact_id": "13-denoland-deno-36913-report",
+      "metadata_artifact_id": "13-denoland-deno-36913-metadata"
+    },
+    {
+      "id": "14-oven-sh-bun-44134",
+      "issue_url": "https://github.com/oven-sh/bun/issues/44134",
+      "frozen_at": "2026-09-27T16:44:29.660Z",
+      "report_artifact_id": "14-oven-sh-bun-44134-report",
+      "metadata_artifact_id": "14-oven-sh-bun-44134-metadata"
+    },
+    {
+      "id": "15-vitejs-vite-23588",
+      "issue_url": "https://github.com/vitejs/vite/issues/23588",
+      "frozen_at": "2026-09-27T16:44:29.943Z",
+      "report_artifact_id": "15-vitejs-vite-23588-report",
+      "metadata_artifact_id": "15-vitejs-vite-23588-metadata"
+    },
+    {
+      "id": "16-vercel-next.js-99318",
+      "issue_url": "https://github.com/vercel/next.js/issues/99318",
+      "frozen_at": "2026-09-27T16:44:30.028Z",
+      "report_artifact_id": "16-vercel-next.js-99318-report",
+      "metadata_artifact_id": "16-vercel-next.js-99318-metadata"
+    },
+    {
+      "id": "17-microsoft-vscode-338203",
+      "issue_url": "https://github.com/microsoft/vscode/issues/338203",
+      "frozen_at": "2026-09-27T16:44:30.173Z",
+      "report_artifact_id": "17-microsoft-vscode-338203-report",
+      "metadata_artifact_id": "17-microsoft-vscode-338203-metadata"
+    },
+    {
+      "id": "18-rust-lang-cargo-17519",
+      "issue_url": "https://github.com/rust-lang/cargo/issues/17519",
+      "frozen_at": "2026-09-27T16:44:30.155Z",
+      "report_artifact_id": "18-rust-lang-cargo-17519-report",
+      "metadata_artifact_id": "18-rust-lang-cargo-17519-metadata"
+    },
+    {
+      "id": "19-tokio-rs-tokio-8516",
+      "issue_url": "https://github.com/tokio-rs/tokio/issues/8516",
+      "frozen_at": "2026-09-27T16:44:30.650Z",
+      "report_artifact_id": "19-tokio-rs-tokio-8516-report",
+      "metadata_artifact_id": "19-tokio-rs-tokio-8516-metadata"
+    },
+    {
+      "id": "20-golang-go-81787",
+      "issue_url": "https://github.com/golang/go/issues/81787",
+      "frozen_at": "2026-09-27T16:44:30.454Z",
+      "report_artifact_id": "20-golang-go-81787-report",
+      "metadata_artifact_id": "20-golang-go-81787-metadata"
+    }
+  ],
+  "events": []
+}

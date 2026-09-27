@@ -1,0 +1,26 @@
+{
+  "case_index": 4,
+  "repository": "psf/requests",
+  "issue_number": 7630,
+  "issue_url": "https://github.com/psf/requests/issues/7630",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:28.122Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/psf/requests/issues/7630",
+    "comments": "https://api.github.com/repos/psf/requests/issues/7630/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/psf/requests/issues/7630/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/psf/requests/issues/7630/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 0,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "dfb8471e136fe32d0e809dfb297a9589df0e443631a3e4c16612b3d828ac8003",
+  "issue_sha256": "c496b02288951a02edf4cb5879b1f2631c0bc281f25284d79a69ff1720f73fbb",
+  "comments_sha256": "95bc188b84f9288ae422fefeb1a0f9cad4d9681dd63981dbcb0645e61a7a6bca"
+}

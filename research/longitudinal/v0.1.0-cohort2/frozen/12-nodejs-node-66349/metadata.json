@@ -1,0 +1,26 @@
+{
+  "case_index": 12,
+  "repository": "nodejs/node",
+  "issue_number": 66349,
+  "issue_url": "https://github.com/nodejs/node/issues/66349",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:29.424Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/nodejs/node/issues/66349",
+    "comments": "https://api.github.com/repos/nodejs/node/issues/66349/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/nodejs/node/issues/66349/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/nodejs/node/issues/66349/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 1,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "289850ac7c24e0111ed6a644b8784d27b955d792bfb89c4d59773b982db4d863",
+  "issue_sha256": "5ec013d5032343958a20904c2238dc28dcefd6f2d8ad16310f525daac9c78c14",
+  "comments_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+}

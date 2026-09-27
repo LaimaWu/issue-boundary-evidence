@@ -1,0 +1,26 @@
+{
+  "case_index": 19,
+  "repository": "tokio-rs/tokio",
+  "issue_number": 8516,
+  "issue_url": "https://github.com/tokio-rs/tokio/issues/8516",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:30.650Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/tokio-rs/tokio/issues/8516",
+    "comments": "https://api.github.com/repos/tokio-rs/tokio/issues/8516/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/tokio-rs/tokio/issues/8516/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/tokio-rs/tokio/issues/8516/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 0,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "00730988672ab2a16bf4e87e01c8505ea05a8e441032f67ece1884288bec3c43",
+  "issue_sha256": "1c153177b3de7e48c98ed530638c7f4a55614ed5d10ab353f8aef985cf5f9101",
+  "comments_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+}

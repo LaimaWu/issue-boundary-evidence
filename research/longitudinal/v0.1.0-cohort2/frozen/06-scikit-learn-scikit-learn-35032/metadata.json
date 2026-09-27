@@ -1,0 +1,26 @@
+{
+  "case_index": 6,
+  "repository": "scikit-learn/scikit-learn",
+  "issue_number": 35032,
+  "issue_url": "https://github.com/scikit-learn/scikit-learn/issues/35032",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:28.919Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/scikit-learn/scikit-learn/issues/35032",
+    "comments": "https://api.github.com/repos/scikit-learn/scikit-learn/issues/35032/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/scikit-learn/scikit-learn/issues/35032/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/scikit-learn/scikit-learn/issues/35032/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 2,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "41e8c28bab70f878bdd2826ee0ee9d24bdf269c4f0c8e88afae6fefb6586a928",
+  "issue_sha256": "6ea61443aed2f9576ab3b372c5dca1686ede27fa84a274fb453817c72424c663",
+  "comments_sha256": "c022511f7bda777f1482c22e7e04baee27a0d1d15e2ce6452ffd69492f77eb69"
+}
