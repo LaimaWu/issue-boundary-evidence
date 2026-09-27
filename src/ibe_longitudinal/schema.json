@@ -1,0 +1,612 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ibe:longitudinal:1.0.0",
+  "title": "IBE independent longitudinal research journal",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "dataset_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "frozen_release": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/artifact"
+      },
+      "minItems": 1
+    },
+    "cases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/case"
+      },
+      "minItems": 1
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "dataset_id",
+    "frozen_release",
+    "artifacts",
+    "cases",
+    "events"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "kind": {
+          "enum": [
+            "frozen_report",
+            "frozen_metadata",
+            "research_dataset",
+            "research_report",
+            "evidence_snapshot",
+            "freeze_archive",
+            "freeze_manifest"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "path",
+        "sha256",
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "case": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "issue_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "frozen_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "report_artifact_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "metadata_artifact_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        }
+      },
+      "required": [
+        "id",
+        "issue_url",
+        "frozen_at",
+        "report_artifact_id",
+        "metadata_artifact_id"
+      ],
+      "additionalProperties": false
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "case_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "actor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "evidence",
+            "adjudication",
+            "outcome"
+          ]
+        },
+        "payload": {},
+        "previous_hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "hash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "case_id",
+        "recorded_at",
+        "actor",
+        "kind",
+        "payload",
+        "previous_hash",
+        "hash"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "evidence"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "$ref": "#/$defs/evidence"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "adjudication"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "$ref": "#/$defs/adjudication"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "outcome"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "$ref": "#/$defs/outcome"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "enum": [
+            "maintainer_comment",
+            "comment",
+            "closure",
+            "reopen",
+            "pull_request",
+            "commit",
+            "release",
+            "backport",
+            "regression_conclusion",
+            "version_conclusion",
+            "observation",
+            "research_snapshot"
+          ]
+        },
+        "occurred_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "observed_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "temporal_scope": {
+          "enum": [
+            "pre_freeze_context",
+            "post_freeze",
+            "research_snapshot"
+          ]
+        },
+        "epistemic_status": {
+          "enum": [
+            "observed_fact",
+            "maintainer_confirmed_fact",
+            "researcher_inference"
+          ]
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://"
+            },
+            "locator": {
+              "type": "string",
+              "minLength": 1
+            },
+            "excerpt": {
+              "type": "string",
+              "minLength": 1
+            },
+            "author": {
+              "type": "string",
+              "minLength": 1
+            },
+            "author_role": {
+              "enum": [
+                "maintainer",
+                "reporter",
+                "contributor",
+                "researcher",
+                "system",
+                "unknown"
+              ]
+            },
+            "artifact_id": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "origin": {
+              "enum": [
+                "direct",
+                "research_summary"
+              ]
+            },
+            "json_pointer": {
+              "type": "string",
+              "pattern": "^/"
+            }
+          },
+          "required": [
+            "url",
+            "locator",
+            "excerpt",
+            "author",
+            "author_role",
+            "artifact_id"
+          ],
+          "additionalProperties": false
+        },
+        "source_kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_record": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "kind",
+        "occurred_at",
+        "observed_at",
+        "temporal_scope",
+        "epistemic_status",
+        "statement",
+        "source"
+      ],
+      "additionalProperties": false
+    },
+    "adjudication": {
+      "type": "object",
+      "properties": {
+        "dimension": {
+          "enum": [
+            "phenomenon",
+            "cause",
+            "ownership",
+            "severity",
+            "fix_trajectory"
+          ]
+        },
+        "verdict": {
+          "enum": [
+            "supported",
+            "refuted",
+            "mixed",
+            "unresolved",
+            "not_assessed",
+            "source_recorded",
+            "not_claimed"
+          ]
+        },
+        "epistemic_status": {
+          "enum": [
+            "observed_fact",
+            "maintainer_confirmed_fact",
+            "researcher_inference"
+          ]
+        },
+        "frozen_claim": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "unresolved_questions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_assessment": {
+          "type": "object",
+          "properties": {
+            "assessment": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence_type": {
+              "enum": [
+                "observed_fact",
+                "maintainer_confirmed_fact",
+                "researcher_inference"
+              ]
+            },
+            "status": {
+              "type": "string",
+              "minLength": 1
+            },
+            "evidence_urls": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https://"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "assessment",
+            "evidence_type",
+            "status",
+            "evidence_urls"
+          ],
+          "additionalProperties": false
+        },
+        "frozen_alignment": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_pointer": {
+          "type": "object",
+          "properties": {
+            "artifact_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "pointer": {
+              "type": "string",
+              "pattern": "^/"
+            }
+          },
+          "required": [
+            "artifact_id",
+            "pointer"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "dimension",
+        "verdict",
+        "epistemic_status",
+        "frozen_claim",
+        "rationale",
+        "evidence_ids",
+        "unresolved_questions",
+        "supersedes"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "verdict": {
+                "const": "source_recorded"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "source_assessment",
+              "frozen_alignment",
+              "source_pointer"
+            ]
+          }
+        }
+      ]
+    },
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "unresolved",
+            "final"
+          ]
+        },
+        "issue_state": {
+          "enum": [
+            "open",
+            "closed",
+            "unknown"
+          ]
+        },
+        "resolution": {
+          "enum": [
+            "unknown",
+            "fixed",
+            "wont_fix",
+            "duplicate",
+            "invalid",
+            "withdrawn",
+            "other"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "dimension_ids": {
+          "type": "object",
+          "properties": {
+            "phenomenon": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "cause": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "ownership": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "severity": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            "fix_trajectory": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            }
+          },
+          "required": [
+            "phenomenon",
+            "cause",
+            "ownership",
+            "severity",
+            "fix_trajectory"
+          ],
+          "additionalProperties": false
+        },
+        "unresolved_questions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_disposition": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "status",
+        "issue_state",
+        "resolution",
+        "rationale",
+        "evidence_ids",
+        "dimension_ids",
+        "unresolved_questions",
+        "supersedes"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

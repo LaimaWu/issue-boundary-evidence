@@ -1,0 +1,15 @@
+{
+  "case_index": 7,
+  "repository": "pydantic/pydantic",
+  "issue_number": 13835,
+  "issue_url": "https://github.com/pydantic/pydantic/issues/13835",
+  "snapshot_started_utc": "2026-09-19T11:43:28Z",
+  "snapshot_completed_utc": "2026-09-19T11:43:30Z",
+  "issue_state": "open",
+  "issue_http_status": 200,
+  "comments_pages": 1,
+  "comments_complete": "yes",
+  "cli_exit_code": 0,
+  "report_present": "yes",
+  "github_api_mode": "anonymous"
+}

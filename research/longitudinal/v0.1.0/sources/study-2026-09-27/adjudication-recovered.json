@@ -1,0 +1,1287 @@
+{
+  "schema_version": "1.0",
+  "study": "IBE v0.1.0 first longitudinal adjudication",
+  "evaluation_release": {
+    "tag": "v0.1.0",
+    "sha": "0a21ea25ce03bcc68ef32a6b477244089dcf5ecd"
+  },
+  "freeze": {
+    "documented_date_utc": "2026-09-19",
+    "precision": "per_case_second",
+    "manifest": "MANIFEST.md",
+    "archive_name": "prospective-freeze-v0.1.0-2026-09-19.zip",
+    "archive_sha256": "f398678f387c4b37e4d08285a0637d70f653aa2aa536e032d58b06beb20ec070",
+    "source_archive_library_file_id": "libfile_6ff23855ba14819188066ff09b0be487",
+    "checksum_file": "SHA256SUMS.txt",
+    "checksum_entries_verified": 98,
+    "checksum_failures": 0,
+    "release_tag": "v0.1.0",
+    "release_sha": "0a21ea25ce03bcc68ef32a6b477244089dcf5ecd",
+    "python_version": "3.12.14",
+    "github_access": "anonymous",
+    "cases_frozen": 10,
+    "open_at_freeze": 10,
+    "cli_failures": 0,
+    "per_case_timestamp_available": true,
+    "raw_frozen_reports_available": true,
+    "raw_frozen_issue_and_comment_json_available": true,
+    "note": "Archive extracted into a separate read-only analysis copy. All original report bytes remain untouched."
+  },
+  "as_of_utc": "2026-09-26T23:41:39Z",
+  "source_method": "Public GitHub REST issues, comments, timelines, linked PRs and releases; fetched read-only. Timeline pages contained at most 18 events and no pagination links in this ten-case sample. Current responses may reflect edits/deletions after freeze.",
+  "evidence_types": {
+    "observed_fact": "Direct public artifact, state, comment, review, release or timestamp; a contributor’s assertion remains an assertion.",
+    "maintainer_confirmed_fact": "Explicit statement from an identified repository member/maintainer; bot output is never silently promoted to maintainer judgment.",
+    "researcher_inference": "Interpretation, practical severity or ownership judgment requiring further validation."
+  },
+  "date_boundary_policy": "Use per-case snapshot_completed_utc as the temporal boundary, including September 19 activity later than 11:43 UTC. Verify changes in comments, timelines and linked PRs against the frozen issue/comment JSON. The bot comment in #34977 existed at freeze, but its successful-run URL changed by edit on September 23.",
+  "adjudication_limit": "Original reports are now directly assessed. Independent post-freeze maintainer disposition is substantive in only three closed issues. Tool output is an evidence pack, not a prediction of severity, owner, root cause or fix; unclaimed dimensions are recorded as not_claimed.",
+  "cases": [
+    {
+      "id": "scikit-learn/scikit-learn#34977",
+      "issue_url": "https://github.com/scikit-learn/scikit-learn/issues/34977",
+      "title": "Wheel builder CI failure",
+      "issue_state_as_of": "closed",
+      "freeze_context": "At the 11:43:15 UTC snapshot the issue remained open. A bot comment already pointed to a successful September 19 run; a maintainer comment included the cp314t Windows arm64 failure and ValueError trace.",
+      "evidence_timeline": [
+        {
+          "at_utc": "2026-09-23T04:34:55Z",
+          "kind": "comment_edit",
+          "statement": "A bot comment created September 18 was edited to report a successful September 23 CI run; its creation date is not the success time.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/scikit-learn/scikit-learn/issues/34977#issuecomment-5722880061"
+        },
+        {
+          "at_utc": "2026-09-23T20:56:04Z",
+          "kind": "closed",
+          "statement": "A repository member closed the issue.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/scikit-learn/scikit-learn/issues/34977"
+        }
+      ],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "CI wheel build failed on cp314t Windows arm64; later run succeeded.",
+          "evidence_type": "observed_fact",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/issues/34977#issuecomment-5723076602",
+            "https://github.com/scikit-learn/scikit-learn/issues/34977#issuecomment-5722880061"
+          ]
+        },
+        "cause": {
+          "assessment": "Exact underlying cause and reason for recovery are unconfirmed; exception alone does not establish a code defect.",
+          "evidence_type": "researcher_inference",
+          "status": "unresolved",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/issues/34977#issuecomment-5723076602"
+          ]
+        },
+        "ownership": {
+          "assessment": "Repository CI incident; ownership of the underlying fault is undetermined.",
+          "evidence_type": "researcher_inference",
+          "status": "unresolved",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/issues/34977"
+          ]
+        },
+        "severity": {
+          "assessment": "Build pipeline interruption, scope limited to observed wheel job; wider release impact unproven.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/issues/34977#issuecomment-5723076602"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "A successful run preceded closure; no linked repair PR or release was established.",
+          "evidence_type": "observed_fact",
+          "status": "closed_without_identified_fix",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/issues/34977#issuecomment-5722880061",
+            "https://github.com/scikit-learn/scikit-learn/issues/34977"
+          ]
+        }
+      },
+      "linked_prs": [],
+      "release_and_backport": [],
+      "unresolved": [
+        "Failure mechanism",
+        "Whether a particular code or infrastructure change caused recovery"
+      ],
+      "frozen_artifact": {
+        "case_index": 1,
+        "snapshot_started_utc": "2026-09-19T11:43:12Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:15Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/01-scikit-learn-scikit-learn-34977/report.md",
+        "report_sha256": "b6aa3961affa123b9db077ddfe6b55b3d7b315183df5d5094272d2e8b83ebf9d",
+        "frozen_comment_count": 2
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [
+          5722880061
+        ],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "ABI/wheel, joblib and parallel were flagged strong; the report also recorded a successful CI run already visible at freeze.",
+        "supported_extraction": "The report traced the Windows arm64 wheel job and cp314t tag to a comment.",
+        "miss_or_noise": "`joblib` appears in a stack frame and `parallel` is also an API name; later success and closure identify no cause, so neither strong boundary is validated. The bot success mentioned in the report was already known on September 19.",
+        "literal_report_signals": [
+          "strong_clue joblib",
+          "strong_clue parallel",
+          "successful CI run 35419499583 already present at freeze"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "partial_pre_freeze",
+          "cause": "unresolved",
+          "ownership": "unresolved",
+          "severity": "not_claimed",
+          "fix_trajectory": "no_prospective_gain"
+        },
+        "temporal_conclusion": "later closure and a new bot success-run link do not confirm the flagged package boundaries",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    },
+    {
+      "id": "scikit-learn/scikit-learn#34975",
+      "issue_url": "https://github.com/scikit-learn/scikit-learn/issues/34975",
+      "title": "float32 scores and ranking count precision",
+      "issue_state_as_of": "open",
+      "freeze_context": "At the 11:43:17 UTC snapshot the issue remained open. Reporter proposed a float32 count-cast regression in scikit-learn; maintainer had invited a PR and #34980 was already open.",
+      "evidence_timeline": [],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "Reporter reproduces integer count rounding above 2**24 when float32 scores are used on NumPy.",
+          "evidence_type": "observed_fact",
+          "status": "reported_unconfirmed",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/issues/34975"
+          ]
+        },
+        "cause": {
+          "assessment": "Casting exact int64 counts to y_score float32 is the reporter and PR author’s proposed mechanism; no later maintainer conclusion.",
+          "evidence_type": "researcher_inference",
+          "status": "unresolved",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/issues/34975",
+            "https://github.com/scikit-learn/scikit-learn/pull/34980"
+          ]
+        },
+        "ownership": {
+          "assessment": "Proposed fix targets scikit-learn ranking metrics; maintainer invited PR before freeze.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/issues/34975#issuecomment-5715288844",
+            "https://github.com/scikit-learn/scikit-learn/pull/34980"
+          ]
+        },
+        "severity": {
+          "assessment": "Potential silent numerical imprecision on large inputs; frequency and production impact unmeasured.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/issues/34975"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "#34980 remains open and unmerged as of cutoff; no release or backport evidenced.",
+          "evidence_type": "observed_fact",
+          "status": "open_pr",
+          "evidence_urls": [
+            "https://github.com/scikit-learn/scikit-learn/pull/34980"
+          ]
+        }
+      },
+      "linked_prs": [
+        {
+          "url": "https://github.com/scikit-learn/scikit-learn/pull/34980",
+          "state": "open",
+          "merged": false,
+          "opened_utc": "2026-09-17T13:51:51Z"
+        }
+      ],
+      "release_and_backport": [],
+      "unresolved": [
+        "Maintainer validation of regression cause",
+        "PR review, merge and release"
+      ],
+      "frozen_artifact": {
+        "case_index": 2,
+        "snapshot_started_utc": "2026-09-19T11:43:15Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:17Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/02-scikit-learn-scikit-learn-34975/report.md",
+        "report_sha256": "27ff56a24e509e25a3e589f48d9ac6b903ca22ba1326c77cb62c5b6f7f6f10be",
+        "frozen_comment_count": 5
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "The report surfaced the author’s claimed NumPy float32 regression and linked a contributor fork, but promoted that fork as an external-repository boundary.",
+        "supported_extraction": "Version/regression clue and source location in ranking metrics were traceable before freeze.",
+        "miss_or_noise": "`ammar-iitm/scikit-learn` is a proposed fix branch, not a plausible upstream owner; NumPy is the input backend while the proposed cast is in scikit-learn. PR #34980 is still unmerged and root cause lacks a new maintainer conclusion.",
+        "literal_report_signals": [
+          "strong_clue regression from #34817",
+          "strong_clue external repo ammar-iitm/scikit-learn",
+          "strong_clue numpy"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "partial_pre_freeze",
+          "cause": "unresolved",
+          "ownership": "misleading_boundary",
+          "severity": "not_claimed",
+          "fix_trajectory": "unresolved"
+        },
+        "temporal_conclusion": "no independent post-freeze resolution",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    },
+    {
+      "id": "astral-sh/uv#21829",
+      "issue_url": "https://github.com/astral-sh/uv/issues/21829",
+      "title": "Granular cache management",
+      "issue_state_as_of": "open",
+      "freeze_context": "At the 11:43:20 UTC snapshot the issue remained open. Maintainer had corrected the initial symlink-only premise and pointed to cache prune; reporter still requested individual distribution management.",
+      "evidence_timeline": [
+        {
+          "at_utc": "2026-09-21T12:19:20Z",
+          "kind": "subscription",
+          "statement": "A user subscribed; no substantive comment or resolution followed.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/astral-sh/uv/issues/21829"
+        }
+      ],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "Feature request for listing and pruning particular cached distributions; no verified failure in existing cache prune.",
+          "evidence_type": "observed_fact",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21829"
+          ]
+        },
+        "cause": {
+          "assessment": "Request concerns missing granularity; initial premise that only symlinks avoid duplication was corrected by maintainer before freeze.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21829#issuecomment-5734801101",
+            "https://github.com/astral-sh/uv/issues/21829#issuecomment-5735325203"
+          ]
+        },
+        "ownership": {
+          "assessment": "Requested interface belongs to uv; local Windows filesystem and package sizes affect the motivating example.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21829"
+          ]
+        },
+        "severity": {
+          "assessment": "Potential high disk/network cost for specific large packages, quantified impact absent.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21829#issuecomment-5735325203"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "Issue remains open with no linked merged PR or release conclusion after freeze.",
+          "evidence_type": "observed_fact",
+          "status": "unresolved",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21829"
+          ]
+        }
+      },
+      "linked_prs": [],
+      "release_and_backport": [],
+      "unresolved": [
+        "Whether maintainers accept the requested granularity",
+        "Implementation scope"
+      ],
+      "frozen_artifact": {
+        "case_index": 3,
+        "snapshot_started_utc": "2026-09-19T11:43:17Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:20Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/03-astral-sh-uv-21829/report.md",
+        "report_sha256": "4f3423d816b53256fc521ff7fcb1c836ae06249b38f91e48ec35029fce002c4b",
+        "frozen_comment_count": 2
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "No meaningful cache/API boundary was extracted; the report elevated ordinary dependency upgrades as regression language and the example torch version as a version fact.",
+        "supported_extraction": "Cited the exact user example, with no invented version.",
+        "miss_or_noise": "`torch==2.14.0+cu132` was an illustrative distribution, not the uv version or a confirmed regression; the pre-freeze maintainer correction about reflinks/hardlinks and `uv cache prune` was missed.",
+        "literal_report_signals": [
+          "no boundary candidates",
+          "strong_clue upgrade prose as regression",
+          "example torch 2.14.0"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "undercovered_at_freeze",
+          "cause": "missed_pre_freeze_maintainer_context",
+          "ownership": "unresolved",
+          "severity": "not_claimed",
+          "fix_trajectory": "unresolved"
+        },
+        "temporal_conclusion": "no substantive post-freeze maintainer outcome",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    },
+    {
+      "id": "astral-sh/uv#21720",
+      "issue_url": "https://github.com/astral-sh/uv/issues/21720",
+      "title": "uv check and ty check Python-version divergence",
+      "issue_state_as_of": "open",
+      "freeze_context": "At the 11:43:22 UTC snapshot the issue remained open. Maintainer had explained intentional environment preference; uv #21744 and ty #28646 were merged and uv 0.12.16 had been published.",
+      "evidence_timeline": [],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "The two commands can report different diagnostics from different effective Python version choices.",
+          "evidence_type": "observed_fact",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21720"
+          ]
+        },
+        "cause": {
+          "assessment": "Maintainer explains uv prefers current environment while ty reads project support floor; explicit --python forwarding was separately changed.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21720#issuecomment-5695949350",
+            "https://github.com/astral-sh/uv/pull/21744",
+            "https://github.com/astral-sh/ruff/pull/28646"
+          ]
+        },
+        "ownership": {
+          "assessment": "Cross-component uv/ty behavioral contract, rather than evidence that one checker is categorically broken.",
+          "evidence_type": "researcher_inference",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21720#issuecomment-5695949350",
+            "https://github.com/astral-sh/uv/pull/21744",
+            "https://github.com/astral-sh/ruff/pull/28646"
+          ]
+        },
+        "severity": {
+          "assessment": "Surprising check discrepancy, with documented workaround; no measured prevalence.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21720"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "Narrow changes merged and uv #21744 was listed in 0.12.16 before freeze; default discrepancy remains an open issue.",
+          "evidence_type": "observed_fact",
+          "status": "partial_pre_freeze",
+          "evidence_urls": [
+            "https://github.com/astral-sh/uv/issues/21720",
+            "https://github.com/astral-sh/uv/pull/21744",
+            "https://github.com/astral-sh/ruff/pull/28646",
+            "https://github.com/astral-sh/uv/releases/tag/0.12.16"
+          ]
+        }
+      },
+      "linked_prs": [
+        {
+          "url": "https://github.com/astral-sh/uv/pull/21744",
+          "state": "closed",
+          "merged": true,
+          "merged_utc": "2026-09-17T14:33:03Z"
+        },
+        {
+          "url": "https://github.com/astral-sh/ruff/pull/28646",
+          "state": "closed",
+          "merged": true,
+          "merged_utc": "2026-09-17T14:26:25Z"
+        }
+      ],
+      "release_and_backport": [
+        {
+          "url": "https://github.com/astral-sh/uv/releases/tag/0.12.16",
+          "version": "0.12.16",
+          "published_utc": "2026-09-18T01:01:42Z",
+          "relationship": "Lists uv #21744; before freeze"
+        }
+      ],
+      "unresolved": [
+        "Whether default behaviors should converge",
+        "Any later version-specific regression conclusion"
+      ],
+      "frozen_artifact": {
+        "case_index": 4,
+        "snapshot_started_utc": "2026-09-19T11:43:20Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:22Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/04-astral-sh-uv-21720/report.md",
+        "report_sha256": "b1c7e815fbf05d19b634eedc3cca80cc650796f7d3f7202a27a5a889f3f65a31",
+        "frozen_comment_count": 2
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "The report captured Python, uv and ty environment versions, but its sole strong boundary was the placeholder project named `demo`.",
+        "supported_extraction": "Faithfully extracted Python and uv version facts.",
+        "miss_or_noise": "It omitted the pre-freeze maintainer explanation contrasting current `.venv` with `requires-python`, and did not surface the already merged uv/ty PRs or uv 0.12.16. `demo` is a minimal-example name, not a dependency boundary.",
+        "literal_report_signals": [
+          "strong_clue demo",
+          "missing uv/ty semantics",
+          "missing pre-freeze partial fixes"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "partial_pre_freeze",
+          "cause": "missed_pre_freeze_maintainer_context",
+          "ownership": "misleading_boundary",
+          "severity": "not_claimed",
+          "fix_trajectory": "missed_pre_freeze_release"
+        },
+        "temporal_conclusion": "the issue remains open; release evidence predates freeze",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    },
+    {
+      "id": "matplotlib/matplotlib#32339",
+      "issue_url": "https://github.com/matplotlib/matplotlib/issues/32339",
+      "title": "macOS 14 CI dependency installation",
+      "issue_state_as_of": "closed",
+      "freeze_context": "At the 11:43:25 UTC snapshot the issue remained open. Homebrew macOS 14 bottle failure and a proposed CI-image change were already public; #32372 was open but not merged.",
+      "evidence_timeline": [
+        {
+          "at_utc": "2026-09-19T16:49:52Z",
+          "kind": "ci_bump_new_blocker",
+          "statement": "A contributor narrowed a new macOS 26 interactive-framework crash to framework load order while the CI-image PR was being tested.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5743638528"
+        },
+        {
+          "at_utc": "2026-09-19T17:01:41Z",
+          "kind": "related_pr_opened",
+          "statement": "PR #32376 opened to load AppKit before CoreText, a blocker encountered while testing the builder-image change.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/pull/32376"
+        },
+        {
+          "at_utc": "2026-09-19T18:48:59Z",
+          "kind": "conditional_review",
+          "statement": "Contributor review approved #32372 conditional on #32376 landing.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/pull/32372"
+        },
+        {
+          "at_utc": "2026-09-19T19:03:14Z",
+          "kind": "platform_scope_clarification",
+          "statement": "Contributor clarified macOS 10.14 and macOS 14 are different releases, limiting an overly broad reading of usage statistics.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5744556853"
+        },
+        {
+          "at_utc": "2026-09-23T00:54:33Z",
+          "kind": "related_pr_merged",
+          "statement": "The separate macOS framework-load PR #32376 merged before the CI-image PR.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/pull/32376"
+        },
+        {
+          "at_utc": "2026-09-23T15:19:01Z",
+          "kind": "pr_merged",
+          "statement": "PR #32372 changed macOS CI builder images and explicitly marked the issue fixed; merged to main.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/pull/32372"
+        },
+        {
+          "at_utc": "2026-09-23T15:19:02Z",
+          "kind": "closed",
+          "statement": "Issue closed one second after PR merge.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/issues/32339"
+        },
+        {
+          "at_utc": "2026-09-25T20:21:25Z",
+          "kind": "backport_discussion",
+          "statement": "Maintainer said they were debating a 3.11 backport as CI was failing again, with a possible new LLVM problem.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5839025923"
+        },
+        {
+          "at_utc": "2026-09-25T22:36:03Z",
+          "kind": "backport_discussion",
+          "statement": "Contributor supported backporting the CI change without treating it as a user-platform support drop.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5840606172"
+        },
+        {
+          "at_utc": "2026-09-26T02:23:26Z",
+          "kind": "cause_discussion",
+          "statement": "Contributor described Homebrew on macOS 14 and earlier as unreliable under its Tier 3 policy.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5842344428"
+        }
+      ],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "macOS 14 CI package installation became unreliable; later CI failures persisted in a possible separate LLVM path.",
+          "evidence_type": "observed_fact",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/issues/32339",
+            "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5839025923"
+          ]
+        },
+        "cause": {
+          "assessment": "Homebrew support and bottle availability are the maintained explanation of the original failure; later LLVM failure not established as same cause.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "supported_original_only",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/issues/32339",
+            "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5839025923",
+            "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5842344428"
+          ]
+        },
+        "ownership": {
+          "assessment": "CI image choice is Matplotlib’s; upstream Homebrew package support is outside its repository.",
+          "evidence_type": "researcher_inference",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/issues/32339",
+            "https://github.com/matplotlib/matplotlib/pull/32372"
+          ]
+        },
+        "severity": {
+          "assessment": "Active CI breakage; no evidence that installed Matplotlib stopped supporting macOS 14.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/issues/32339",
+            "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5840606172"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "Main-branch CI builder update merged and issue closed; backport was being debated, no 3.11 release/backport verified.",
+          "evidence_type": "observed_fact",
+          "status": "main_merged_backport_unresolved",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/pull/32372",
+            "https://github.com/matplotlib/matplotlib/issues/32339",
+            "https://github.com/matplotlib/matplotlib/pull/32372#issuecomment-5839025923"
+          ]
+        }
+      },
+      "linked_prs": [
+        {
+          "url": "https://github.com/matplotlib/matplotlib/pull/32372",
+          "state": "closed",
+          "merged": true,
+          "merged_utc": "2026-09-23T15:19:01Z",
+          "commit": "a8cabafa9a9b80f59ca5eee929ac02f4649b9851"
+        },
+        {
+          "url": "https://github.com/matplotlib/matplotlib/pull/32376",
+          "state": "closed",
+          "merged": true,
+          "merged_utc": "2026-09-23T00:54:33Z",
+          "commit": "4836ff616ccbd79f6499e84aebc4451e1d77c94a",
+          "relationship": "Separate blocker on macOS 26 encountered by #32372, not the original macOS 14 Homebrew issue"
+        }
+      ],
+      "release_and_backport": [
+        {
+          "status": "no_post_freeze_release_found",
+          "note": "Latest checked Matplotlib GitHub release v3.11.2 was September 11; backport discussion September 25–26.",
+          "url": "https://github.com/matplotlib/matplotlib/releases"
+        }
+      ],
+      "unresolved": [
+        "Whether the CI change was backported to v3.11.x",
+        "Cause of renewed LLVM failures"
+      ],
+      "frozen_artifact": {
+        "case_index": 5,
+        "snapshot_started_utc": "2026-09-19T11:43:22Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:25Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/05-matplotlib-matplotlib-32339/report.md",
+        "report_sha256": "46e9615bee88cfffe76d902ba0d4ba00f2c8890b5d2fee5a2cfa2fbf0ac0f8b6",
+        "frozen_comment_count": 8
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "The report flagged Homebrew/homebrew-core as a strong external boundary and cited the formula change.",
+        "supported_extraction": "Directionally consistent with the later merged CI-builder change and the discussion of Homebrew’s support tier.",
+        "miss_or_noise": "Homebrew was explicit in the issue body, so this is extraction of pre-existing evidence, not an independently discovered cause. Five Python-version facts from a background compatibility table add noise; the subsequent LLVM failure/backport remains separate and unresolved.",
+        "literal_report_signals": [
+          "strong_clue Homebrew/homebrew-core",
+          "macOS platform",
+          "five Python versions from background table"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "supported",
+          "cause": "directionally_supported_post_freeze",
+          "ownership": "directionally_supported_post_freeze",
+          "severity": "not_claimed",
+          "fix_trajectory": "not_claimed"
+        },
+        "temporal_conclusion": "one useful boundary aligned with later PR merge, without a novel pre-resolution prediction",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    },
+    {
+      "id": "matplotlib/matplotlib#32329",
+      "issue_url": "https://github.com/matplotlib/matplotlib/issues/32329",
+      "title": "contains() and fill-rule inconsistency",
+      "issue_state_as_of": "open",
+      "freeze_context": "At the 11:43:28 UTC snapshot the issue remained open. The author described overlapping-path containment as inconsistent with fill rules and deferred a change to a later PR.",
+      "evidence_timeline": [],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "Reporter’s examples show path contains() can disagree with both fill rules for overlapping subpaths.",
+          "evidence_type": "observed_fact",
+          "status": "reported_unconfirmed",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/issues/32329"
+          ]
+        },
+        "cause": {
+          "assessment": "Reporter attributes behavior to point_in_path_impl handling each subpath and combining membership; no later maintainer conclusion.",
+          "evidence_type": "researcher_inference",
+          "status": "unresolved",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/issues/32329"
+          ]
+        },
+        "ownership": {
+          "assessment": "Candidate fix would connect Matplotlib fill-rule choice to path containment internals.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/issues/32329"
+          ]
+        },
+        "severity": {
+          "assessment": "Hit testing mismatch for special overlapping paths; user impact unmeasured.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/issues/32329"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "Open; no new linked fix PR, release, or backport after freeze.",
+          "evidence_type": "observed_fact",
+          "status": "unresolved",
+          "evidence_urls": [
+            "https://github.com/matplotlib/matplotlib/issues/32329"
+          ]
+        }
+      },
+      "linked_prs": [],
+      "release_and_backport": [],
+      "unresolved": [
+        "Chosen semantic rule",
+        "Fix plan and version"
+      ],
+      "frozen_artifact": {
+        "case_index": 6,
+        "snapshot_started_utc": "2026-09-19T11:43:25Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:28Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/06-matplotlib-matplotlib-32329/report.md",
+        "report_sha256": "426e5fe4f1a325a8f83217642f8cc0a63eb9dc9c98e3e4a86902820f03a22f00",
+        "frozen_comment_count": 2
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "The report explicitly abstained: “No major boundary evidence found.”",
+        "supported_extraction": "Reasonable abstention for an internal geometry/fill-rule semantic issue, while preserving its code and PR links.",
+        "miss_or_noise": "The actual path-containment issue remains unresolved; no later evidence can establish the final semantics or correctness of the cited internal link.",
+        "literal_report_signals": [
+          "No major boundary evidence found",
+          "same-repository #32253 metadata"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "not_characterized",
+          "cause": "abstention",
+          "ownership": "abstention",
+          "severity": "not_claimed",
+          "fix_trajectory": "unresolved"
+        },
+        "temporal_conclusion": "no substantive post-freeze outcome",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    },
+    {
+      "id": "pydantic/pydantic#13835",
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13835",
+      "title": "v1 Hypothesis plugin import under v2",
+      "issue_state_as_of": "closed",
+      "freeze_context": "At the 11:43:30 UTC snapshot the issue remained open. Reporter and outside contributor had reproduced a private v1 plugin import failure, and #13836 had been bot-closed for lack of assignment.",
+      "evidence_timeline": [
+        {
+          "at_utc": "2026-09-21T02:14:46Z",
+          "kind": "contributor_comment",
+          "statement": "Contributor asked for assignment to reopen #13836 after adjusting tests.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/pydantic/pydantic/issues/13835#issuecomment-5754533343"
+        },
+        {
+          "at_utc": "2026-09-25T02:28:13Z",
+          "kind": "maintainer_conclusion",
+          "statement": "Repository member confirmed module cannot be imported, said no v2 entry point registers it and it is private, and preferred leaving it unchanged; closed issue.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "url": "https://github.com/pydantic/pydantic/issues/13835#issuecomment-5825685645"
+        }
+      ],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "Private v1 Hypothesis module is not importable under v2; maintainer agrees.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "confirmed",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/issues/13835#issuecomment-5825685645"
+          ]
+        },
+        "cause": {
+          "assessment": "No v2 entry point registers the private module; the import failure itself remains, while precise import statements were established by reporter/contributor.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "partially_confirmed",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/issues/13835",
+            "https://github.com/pydantic/pydantic/issues/13835#issuecomment-5825685645"
+          ]
+        },
+        "ownership": {
+          "assessment": "Maintainer judges it outside a supported v2 public integration and prefers no change.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "confirmed_scope",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/issues/13835#issuecomment-5825685645"
+          ]
+        },
+        "severity": {
+          "assessment": "Direct private-module import is broken, but no supported v2 entry point invokes it; low demonstrated product impact.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/issues/13835#issuecomment-5825685645"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "Issue closed without fix; #13836 never merged; maintainer explicitly declined change.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "closed_no_fix",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/issues/13835#issuecomment-5825685645",
+            "https://github.com/pydantic/pydantic/pull/13836"
+          ]
+        }
+      },
+      "linked_prs": [
+        {
+          "url": "https://github.com/pydantic/pydantic/pull/13836",
+          "state": "closed",
+          "merged": false,
+          "closed_utc": "2026-09-19T01:00:39Z"
+        }
+      ],
+      "release_and_backport": [],
+      "unresolved": [
+        "Whether private module will eventually be removed"
+      ],
+      "frozen_artifact": {
+        "case_index": 7,
+        "snapshot_started_utc": "2026-09-19T11:43:28Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:30Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/07-pydantic-pydantic-13835/report.md",
+        "report_sha256": "00d8100444c6a2889303acd034a2468ba9c8c770bac670ad82f18907bb2b2bbf",
+        "frozen_comment_count": 3
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [
+          5754533343,
+          5825685645
+        ],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "The report listed v2/Python versions and contributor assertions that a fix and regression test were ready; it did not identify the public/private module scope.",
+        "supported_extraction": "The title and cited reports accurately identify an import failure, later acknowledged by a repository member.",
+        "miss_or_noise": "Later maintainer concluded the module is private and not registered in v2, and declined repair. A proposed PR and regression test are not evidence of an accepted fix or version regression; report did not resolve that distinction.",
+        "literal_report_signals": [
+          "import failure in title",
+          "contributor fix and regression-test text",
+          "private/entry-point scope absent"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "confirmed_post_freeze",
+          "cause": "partial",
+          "ownership": "missed_later_scope",
+          "severity": "not_claimed",
+          "fix_trajectory": "no_fix_not_predicted"
+        },
+        "temporal_conclusion": "phenomenon confirmed but no-fix ownership/scope conclusion was not anticipated",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    },
+    {
+      "id": "pydantic/pydantic#13834",
+      "issue_url": "https://github.com/pydantic/pydantic/issues/13834",
+      "title": "create_model __validators__ static annotation",
+      "issue_state_as_of": "open",
+      "freeze_context": "At the 11:43:34 UTC snapshot the issue remained open. Reporter described runtime acceptance and static annotation mismatch; contributor PR #13837 had opened.",
+      "evidence_timeline": [
+        {
+          "at_utc": "2026-09-20T14:07:36Z",
+          "kind": "pr_review",
+          "statement": "A contributor reviewer approved #13837 after a static typing regression case was added.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/pydantic/pydantic/pull/13837#pullrequestreview-5260777891"
+        },
+        {
+          "at_utc": "2026-09-20T15:15:35Z",
+          "kind": "pr_closed",
+          "statement": "Repository member closed #13837 without merge; the available PR comments do not establish why.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/pydantic/pydantic/pull/13837"
+        },
+        {
+          "at_utc": "2026-09-23T02:29:31Z",
+          "kind": "deleted_comments",
+          "statement": "Four issue comment-deletion events were logged; deleted content is unavailable and not interpreted.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/pydantic/pydantic/issues/13834"
+        },
+        {
+          "at_utc": "2026-09-23T05:16:04Z",
+          "kind": "new_pr",
+          "statement": "#13851 proposed a similar annotation widening.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/pydantic/pydantic/pull/13851"
+        },
+        {
+          "at_utc": "2026-09-23T05:16:16Z",
+          "kind": "pr_closed",
+          "statement": "Bot closed #13851 because the author was not assigned to the issue.",
+          "evidence_type": "observed_fact",
+          "url": "https://github.com/pydantic/pydantic/pull/13851#issuecomment-5789492583"
+        }
+      ],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "Reporter and contributors observe runtime acceptance with three static checkers rejecting the declared type.",
+          "evidence_type": "observed_fact",
+          "status": "supported_reported",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/issues/13834",
+            "https://github.com/pydantic/pydantic/pull/13837"
+          ]
+        },
+        "cause": {
+          "assessment": "Reviewer identified a static typing regression, since runtime tests already passed before annotation change.",
+          "evidence_type": "observed_fact",
+          "status": "supported_review",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/pull/13837"
+          ]
+        },
+        "ownership": {
+          "assessment": "Candidate annotation change is in Pydantic; maintainer has not stated final intended API type.",
+          "evidence_type": "researcher_inference",
+          "status": "unresolved",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/issues/13834",
+            "https://github.com/pydantic/pydantic/pull/13837",
+            "https://github.com/pydantic/pydantic/pull/13851"
+          ]
+        },
+        "severity": {
+          "assessment": "Type-checking friction with working runtime behavior; no measured usage impact.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/issues/13834"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "Both related PRs are closed unmerged; issue open; no release/backport. Approval of #13837 did not imply merge.",
+          "evidence_type": "observed_fact",
+          "status": "open_no_merged_fix",
+          "evidence_urls": [
+            "https://github.com/pydantic/pydantic/pull/13837",
+            "https://github.com/pydantic/pydantic/pull/13851",
+            "https://github.com/pydantic/pydantic/issues/13834"
+          ]
+        }
+      },
+      "linked_prs": [
+        {
+          "url": "https://github.com/pydantic/pydantic/pull/13837",
+          "state": "closed",
+          "merged": false,
+          "closed_utc": "2026-09-20T15:15:35Z"
+        },
+        {
+          "url": "https://github.com/pydantic/pydantic/pull/13851",
+          "state": "closed",
+          "merged": false,
+          "closed_utc": "2026-09-23T05:16:16Z"
+        }
+      ],
+      "release_and_backport": [],
+      "unresolved": [
+        "Reason maintainer closed approved #13837",
+        "Final accepted annotation and tests",
+        "Deleted-comment contents"
+      ],
+      "frozen_artifact": {
+        "case_index": 8,
+        "snapshot_started_utc": "2026-09-19T11:43:30Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:34Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/08-pydantic-pydantic-13834/report.md",
+        "report_sha256": "a3febe6be5fd4e5878863a2e1ddfe0093cce1697b51a7b32e7564c741a812563",
+        "frozen_comment_count": 3
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "The report collected environment versions, earlier related #9690/#9697 and contributors’ proposed fixes; the type-annotation mismatch itself was not promoted as the primary boundary.",
+        "supported_extraction": "The prior annotation-history references are useful and traceable.",
+        "miss_or_noise": "“Regression tests” were classified as regression language without showing a version regression. The report did not retrieve #13837 despite an issue comment naming it as a PR; later two related PRs closed unmerged, so readiness was not fix trajectory.",
+        "literal_report_signals": [
+          "related #9690/#9697",
+          "strong_clue regression-test prose",
+          "unretrieved #13837"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "undercovered_at_freeze",
+          "cause": "undercovered_at_freeze",
+          "ownership": "unresolved",
+          "severity": "not_claimed",
+          "fix_trajectory": "unresolved"
+        },
+        "temporal_conclusion": "post-freeze PR closures do not establish accepted fix",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    },
+    {
+      "id": "psf/requests#7620",
+      "issue_url": "https://github.com/psf/requests/issues/7620",
+      "title": "Old PR merged to master but absent from main",
+      "issue_state_as_of": "open",
+      "freeze_context": "At the 11:43:37 UTC snapshot the issue remained open. Maintainer had already explained that historical #5410 targeted master rather than main.",
+      "evidence_timeline": [],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "GitHub records historical #5410 as merged, but that old master merge is absent from current main per issue report.",
+          "evidence_type": "observed_fact",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7620",
+            "https://github.com/psf/requests/pull/5410"
+          ]
+        },
+        "cause": {
+          "assessment": "Maintainer identified wrong base branch at master/main cutover.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "confirmed",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7620#issuecomment-5626752874",
+            "https://github.com/psf/requests/issues/7620#issuecomment-5701707334",
+            "https://github.com/psf/requests/pull/5410"
+          ]
+        },
+        "ownership": {
+          "assessment": "Historical repository branch management; not evidence of a current downstream package fault.",
+          "evidence_type": "researcher_inference",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7620",
+            "https://github.com/psf/requests/pull/5410"
+          ]
+        },
+        "severity": {
+          "assessment": "Old uncarried minor shebang change; maintainer found no other identified instances, broader loss unproven.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7620#issuecomment-5701707334"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "No new PR on main, release or backport after freeze; issue remains open.",
+          "evidence_type": "observed_fact",
+          "status": "unresolved",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7620"
+          ]
+        }
+      },
+      "linked_prs": [
+        {
+          "url": "https://github.com/psf/requests/pull/5410",
+          "state": "closed",
+          "merged": true,
+          "merged_utc": "2021-11-28T14:32:29Z",
+          "base": "master",
+          "note": "Historical merge does not imply inclusion in main"
+        }
+      ],
+      "release_and_backport": [],
+      "unresolved": [
+        "Whether change will be reapplied",
+        "Whether any other historical PR was stranded"
+      ],
+      "frozen_artifact": {
+        "case_index": 9,
+        "snapshot_started_utc": "2026-09-19T11:43:34Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:37Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/09-psf-requests-7620/report.md",
+        "report_sha256": "152f3d0b3165495b42e834f68c8889c72b5b4e2402dfbb93dc88fed323dda591",
+        "frozen_comment_count": 5
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "The report captured the historical merge SHA and PR #5410 but did not surface the maintainer-confirmed master/main branch divergence.",
+        "supported_extraction": "The historical commit and PR links are accurate and relevant.",
+        "miss_or_noise": "The decisive explanation was in pre-freeze maintainer comments; “next release” text was elevated as version/regression language although no release commitment followed.",
+        "literal_report_signals": [
+          "historical merge commit",
+          "same-repository PR #5410",
+          "missing master/main branch distinction"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "partial_pre_freeze",
+          "cause": "missed_pre_freeze_maintainer_context",
+          "ownership": "undercovered_at_freeze",
+          "severity": "not_claimed",
+          "fix_trajectory": "unresolved"
+        },
+        "temporal_conclusion": "no substantive post-freeze outcome",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    },
+    {
+      "id": "psf/requests#7610",
+      "issue_url": "https://github.com/psf/requests/issues/7610",
+      "title": "License classifier and SPDX metadata",
+      "issue_state_as_of": "open",
+      "freeze_context": "At the 11:43:41 UTC snapshot the issue remained open. Maintainer had already justified retaining the classifier to support older setuptools and deferred removal.",
+      "evidence_timeline": [],
+      "dimensions": {
+        "phenomenon": {
+          "assessment": "Metadata carries both an SPDX license and legacy classifier; downstream SBOM tooling emits redundant free-text license.",
+          "evidence_type": "observed_fact",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7610"
+          ]
+        },
+        "cause": {
+          "assessment": "Maintainer intentionally retains classifier for older setuptools users; reporter points to deprecation and downstream interpretation.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "confirmed_policy",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7610#issuecomment-5427534997",
+            "https://github.com/psf/requests/issues/7610"
+          ]
+        },
+        "ownership": {
+          "assessment": "Compatibility choice in Requests packaging and SBOM interpretation downstream both contribute; maintainer explicitly declined immediate removal.",
+          "evidence_type": "researcher_inference",
+          "status": "supported",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7610#issuecomment-5427534997"
+          ]
+        },
+        "severity": {
+          "assessment": "Downstream metadata noise with no blocking pipeline according to reporter; removal risks older build workflows per maintainer.",
+          "evidence_type": "researcher_inference",
+          "status": "provisional",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7610#issuecomment-5460764689",
+            "https://github.com/psf/requests/issues/7610#issuecomment-5427534997"
+          ]
+        },
+        "fix_trajectory": {
+          "assessment": "Deferred by maintainer before freeze; still open with no merged change or release.",
+          "evidence_type": "maintainer_confirmed_fact",
+          "status": "deferred_pre_freeze",
+          "evidence_urls": [
+            "https://github.com/psf/requests/issues/7610#issuecomment-5427534997",
+            "https://github.com/psf/requests/issues/7610"
+          ]
+        }
+      },
+      "linked_prs": [],
+      "release_and_backport": [],
+      "unresolved": [
+        "Criteria and date for future classifier removal"
+      ],
+      "frozen_artifact": {
+        "case_index": 10,
+        "snapshot_started_utc": "2026-09-19T11:43:37Z",
+        "snapshot_completed_utc": "2026-09-19T11:43:41Z",
+        "issue_state": "open",
+        "comments_complete": true,
+        "cli_exit_code": 0,
+        "report_path_in_archive": "cases/10-psf-requests-7610/report.md",
+        "report_sha256": "b0a1a759232f2a7a19b413fd7e91b43e2d5fdecb0f65af3583e4ea015cccb6cb",
+        "frozen_comment_count": 8
+      },
+      "snapshot_diff": {
+        "surviving_comment_ids_added_after_freeze": [],
+        "frozen_comment_ids_no_longer_present": [],
+        "surviving_comment_ids_with_body_edit": [],
+        "issue_body_changed_as_of": false,
+        "note": "A current-state diff cannot reconstruct deleted comments that appeared and disappeared between snapshots."
+      },
+      "frozen_report_adjudication": {
+        "report_observation_type": "observed_fact",
+        "researcher_assessment_type": "researcher_inference",
+        "summary": "The report identified older setuptools compatibility as a strong package boundary, drawing from a maintainer comment beyond the initial issue body.",
+        "supported_extraction": "A useful traceable maintainer rationale: preserving legacy build behavior is why the classifier remains.",
+        "miss_or_noise": "It did not clearly distinguish maintainer’s deliberate compatibility choice from the reporter’s SBOM interpretation; generic talk of older versions was framed as version/regression language. No new resolution followed.",
+        "literal_report_signals": [
+          "strong_clue setuptools",
+          "older versions regression language",
+          "maintainer comment beyond initial body"
+        ],
+        "dimension_alignment": {
+          "phenomenon": "partial_pre_freeze",
+          "cause": "supported_pre_freeze",
+          "ownership": "supported_pre_freeze",
+          "severity": "not_claimed",
+          "fix_trajectory": "unresolved"
+        },
+        "temporal_conclusion": "useful pre-freeze evidence extraction, not prospective confirmation",
+        "scope": "Alignment means the report’s evidence orientation versus available pre-freeze information and later independent record. It is not a numerical accuracy score or claim of maintainer use."
+      }
+    }
+  ],
+  "aggregate": {
+    "total": 10,
+    "issues_closed_after_freeze_date": 3,
+    "issues_open_as_of": 7,
+    "post_freeze_issue_closures_by_id": [
+      "scikit-learn/scikit-learn#34977",
+      "matplotlib/matplotlib#32339",
+      "pydantic/pydantic#13835"
+    ],
+    "post_freeze_linked_pr_merged_cases": [
+      "matplotlib/matplotlib#32339"
+    ],
+    "post_freeze_explicit_maintainer_no_fix_cases": [
+      "pydantic/pydantic#13835"
+    ],
+    "frozen_report_alignment_scored": 0,
+    "frozen_reports_assessed": 10,
+    "checksum_entries_verified": 98,
+    "post_freeze_closed_cases_with_directional_boundary_match": [
+      "matplotlib/matplotlib#32339"
+    ],
+    "post_freeze_closed_cases_with_only_phenomenon_confirmed": [
+      "pydantic/pydantic#13835"
+    ],
+    "post_freeze_closed_cases_without_confirmed_root_cause": [
+      "scikit-learn/scikit-learn#34977"
+    ],
+    "major_pre_freeze_misses": [
+      "astral-sh/uv#21720",
+      "psf/requests#7620"
+    ],
+    "conspicuous_spurious_strong_boundaries": [
+      "scikit-learn/scikit-learn#34975 contributor fork",
+      "astral-sh/uv#21720 demo example name"
+    ],
+    "scoring_note": "No single pass/fail count: only one case has a new maintainer trajectory that directionally tests the primary boundary, and each report makes different kinds of evidence claims."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "case_index": 6,
+  "repository": "matplotlib/matplotlib",
+  "issue_number": 32329,
+  "issue_url": "https://github.com/matplotlib/matplotlib/issues/32329",
+  "snapshot_started_utc": "2026-09-19T11:43:25Z",
+  "snapshot_completed_utc": "2026-09-19T11:43:28Z",
+  "issue_state": "open",
+  "issue_http_status": 200,
+  "comments_pages": 1,
+  "comments_complete": "yes",
+  "cli_exit_code": 0,
+  "report_present": "yes",
+  "github_api_mode": "anonymous"
+}
