@@ -1,0 +1,26 @@
+{
+  "case_index": 1,
+  "repository": "python/cpython",
+  "issue_number": 158287,
+  "issue_url": "https://github.com/python/cpython/issues/158287",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:28.543Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/python/cpython/issues/158287",
+    "comments": "https://api.github.com/repos/python/cpython/issues/158287/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/python/cpython/issues/158287/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/python/cpython/issues/158287/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 0,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "5f0a870c79e2d8937ecc819647c5e43afa4ab1654aabfb1fc3191bb5f06c1692",
+  "issue_sha256": "bd09e741299538762f0b6d83cb0b8416435e1f65d615370f8da7791b16e0f32e",
+  "comments_sha256": "b6dd8a26ad767fda30b07a724d0e9dbbcd5da71b947fa0905cec9abba945f4e4"
+}

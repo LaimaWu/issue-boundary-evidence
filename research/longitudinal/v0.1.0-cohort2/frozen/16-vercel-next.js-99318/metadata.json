@@ -1,0 +1,26 @@
+{
+  "case_index": 16,
+  "repository": "vercel/next.js",
+  "issue_number": 99318,
+  "issue_url": "https://github.com/vercel/next.js/issues/99318",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:30.028Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/vercel/next.js/issues/99318",
+    "comments": "https://api.github.com/repos/vercel/next.js/issues/99318/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/vercel/next.js/issues/99318/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/vercel/next.js/issues/99318/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 0,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "4ea7a1ffd85702d9ea9dd6b056f64ff2dad21a1a4987f551d595e2f5f925ef1b",
+  "issue_sha256": "a5917f9359ac985eb3eee4860501c0cdc780531e579449ebb1a54959677ff7c6",
+  "comments_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+}

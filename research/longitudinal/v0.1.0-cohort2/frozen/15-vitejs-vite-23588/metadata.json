@@ -1,0 +1,26 @@
+{
+  "case_index": 15,
+  "repository": "vitejs/vite",
+  "issue_number": 23588,
+  "issue_url": "https://github.com/vitejs/vite/issues/23588",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:29.943Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/vitejs/vite/issues/23588",
+    "comments": "https://api.github.com/repos/vitejs/vite/issues/23588/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/vitejs/vite/issues/23588/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/vitejs/vite/issues/23588/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 1,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "1d42a6326f2b9240242087f2bdffaac5fb8492cfc064cc0f6608c9fca81bd58b",
+  "issue_sha256": "6d9e7dee211894a4207740488cfccf2403267eb9460073043c661a31a8e5cc36",
+  "comments_sha256": "bc70140cb4f04a58523bcb3ee538d1c7a723e78f1599332f873af16a91d2feee"
+}

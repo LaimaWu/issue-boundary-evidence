@@ -1,0 +1,26 @@
+{
+  "case_index": 5,
+  "repository": "pydantic/pydantic",
+  "issue_number": 13869,
+  "issue_url": "https://github.com/pydantic/pydantic/issues/13869",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:28.927Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/pydantic/pydantic/issues/13869",
+    "comments": "https://api.github.com/repos/pydantic/pydantic/issues/13869/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/pydantic/pydantic/issues/13869/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/pydantic/pydantic/issues/13869/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 0,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "3149d8860b405980edd584507720a0ecc77e9c362094c7f53df9e9404c976d76",
+  "issue_sha256": "55dea2b5f9e13f949faa1a4cb9756e4290dd9c894b93ba86a77380509d43c064",
+  "comments_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+}

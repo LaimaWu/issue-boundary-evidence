@@ -1,0 +1,26 @@
+{
+  "case_index": 3,
+  "repository": "astral-sh/uv",
+  "issue_number": 22006,
+  "issue_url": "https://github.com/astral-sh/uv/issues/22006",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:28.350Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/astral-sh/uv/issues/22006",
+    "comments": "https://api.github.com/repos/astral-sh/uv/issues/22006/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/astral-sh/uv/issues/22006/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/astral-sh/uv/issues/22006/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 0,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "ae22b75ac64f56dba022536304c9dd08557a50876c5b9bf4bea134f799bcd12a",
+  "issue_sha256": "c54c8ffcb91c7bfa8a68dcd229f4a654bc694cc01f69bb520dde5ad446ec86e8",
+  "comments_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+}

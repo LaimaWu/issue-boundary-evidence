@@ -1,0 +1,26 @@
+{
+  "case_index": 14,
+  "repository": "oven-sh/bun",
+  "issue_number": 44134,
+  "issue_url": "https://github.com/oven-sh/bun/issues/44134",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:29.660Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/oven-sh/bun/issues/44134",
+    "comments": "https://api.github.com/repos/oven-sh/bun/issues/44134/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/oven-sh/bun/issues/44134/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/oven-sh/bun/issues/44134/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 0,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "d426478c630dfbb8fb2c36a9e15e90f5360aa84205f3dedd45aac14bfb7ed5aa",
+  "issue_sha256": "b0de1c500be6068e224b77e1f5f28ec4b26e3dbd905a2d6922d2afbc930f9d11",
+  "comments_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+}

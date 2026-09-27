@@ -1,0 +1,26 @@
+{
+  "case_index": 20,
+  "repository": "golang/go",
+  "issue_number": 81787,
+  "issue_url": "https://github.com/golang/go/issues/81787",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:30.454Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/golang/go/issues/81787",
+    "comments": "https://api.github.com/repos/golang/go/issues/81787/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/golang/go/issues/81787/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/golang/go/issues/81787/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 2,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "b2d0d7ad4d6a85de7e9aa7cc898d8596ee6157ec6f63c5705b377b576ce93f43",
+  "issue_sha256": "d8449b4c03d2ded7bbbf67c0a453bde01e6e7eb2dadf3b66e7ac01bb3ffaa6b4",
+  "comments_sha256": "a819c1a19a16411b206246b6d2bc355d2e61db857fb1702b8c17d0b7e4950edf"
+}

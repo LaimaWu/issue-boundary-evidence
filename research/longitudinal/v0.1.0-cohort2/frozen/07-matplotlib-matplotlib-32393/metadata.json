@@ -1,0 +1,26 @@
+{
+  "case_index": 7,
+  "repository": "matplotlib/matplotlib",
+  "issue_number": 32393,
+  "issue_url": "https://github.com/matplotlib/matplotlib/issues/32393",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:28.911Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/matplotlib/matplotlib/issues/32393",
+    "comments": "https://api.github.com/repos/matplotlib/matplotlib/issues/32393/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/matplotlib/matplotlib/issues/32393/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/matplotlib/matplotlib/issues/32393/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 0,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "af8a96bc9b79fcfef5a871939bf31e443e883bed506160a2732090a255b3af52",
+  "issue_sha256": "3181ee1276384318ed590a0ce5b3821380326783569d6d73c204af5fc6583988",
+  "comments_sha256": "80956aa0ea75d9d6ca219297f1efed104e432436add69fff860ebf6a22eff3cf"
+}

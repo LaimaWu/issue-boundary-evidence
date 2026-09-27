@@ -1,0 +1,26 @@
+{
+  "case_index": 2,
+  "repository": "pypa/pip",
+  "issue_number": 14315,
+  "issue_url": "https://github.com/pypa/pip/issues/14315",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:28.137Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/pypa/pip/issues/14315",
+    "comments": "https://api.github.com/repos/pypa/pip/issues/14315/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/pypa/pip/issues/14315/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/pypa/pip/issues/14315/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 1,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "35aceac1ad96ee8db70d11ee8e86c02ae30adf4dc5d9279a25e9f085892c9bae",
+  "issue_sha256": "0a70d29902e36724d2fb757848c0cfeb9cf4eea5713cb7282d452463cf6cd7b8",
+  "comments_sha256": "c199407263d3d135db7cd31a55bcf0369e927a62b88401c9491efbcf8e684c18"
+}

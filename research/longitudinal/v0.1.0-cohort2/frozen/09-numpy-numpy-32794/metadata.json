@@ -1,0 +1,26 @@
+{
+  "case_index": 9,
+  "repository": "numpy/numpy",
+  "issue_number": 32794,
+  "issue_url": "https://github.com/numpy/numpy/issues/32794",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:29.080Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/numpy/numpy/issues/32794",
+    "comments": "https://api.github.com/repos/numpy/numpy/issues/32794/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/numpy/numpy/issues/32794/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/numpy/numpy/issues/32794/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 2,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "f92a68fc75503ea2e0685fb15f80b84b70637308bc8c19e1e1b39e37295799a1",
+  "issue_sha256": "449d01588b1c32962d15764559307e4dc869c1914110b1dbdf8be7579be7de44",
+  "comments_sha256": "76a1362560fc631ccc1f5bf3b9c9d15ddbf927ae5297d5b727ce273391e69988"
+}

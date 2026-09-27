@@ -1,0 +1,26 @@
+{
+  "case_index": 13,
+  "repository": "denoland/deno",
+  "issue_number": 36913,
+  "issue_url": "https://github.com/denoland/deno/issues/36913",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:29.520Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/denoland/deno/issues/36913",
+    "comments": "https://api.github.com/repos/denoland/deno/issues/36913/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/denoland/deno/issues/36913/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/denoland/deno/issues/36913/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 1,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "4de76074cd4172679650674deed2dc593383feba15ce6b5e4271498361ce2e1b",
+  "issue_sha256": "b789471332cc0722516cf1cb3b698b9044610e9f33b1078d5214287b4a0e0c63",
+  "comments_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+}

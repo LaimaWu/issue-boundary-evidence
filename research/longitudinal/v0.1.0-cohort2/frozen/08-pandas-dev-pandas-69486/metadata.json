@@ -1,0 +1,26 @@
+{
+  "case_index": 8,
+  "repository": "pandas-dev/pandas",
+  "issue_number": 69486,
+  "issue_url": "https://github.com/pandas-dev/pandas/issues/69486",
+  "snapshot_started_utc": "2026-09-27T16:44:27.591Z",
+  "snapshot_completed_utc": "2026-09-27T16:44:28.953Z",
+  "retrieval_mode": "GitHub connector, public REST GET",
+  "retrieval_urls": {
+    "issue": "https://api.github.com/repos/pandas-dev/pandas/issues/69486",
+    "comments": "https://api.github.com/repos/pandas-dev/pandas/issues/69486/comments?per_page=100&page=1",
+    "timeline": "https://api.github.com/repos/pandas-dev/pandas/issues/69486/timeline?per_page=100&page=1",
+    "events": "https://api.github.com/repos/pandas-dev/pandas/issues/69486/events?per_page=100&page=1"
+  },
+  "errors": [],
+  "snapshot_validation": "complete; all captured issue/comments/timeline/events predate this cutoff",
+  "comments_complete": true,
+  "timeline_complete": true,
+  "events_complete": true,
+  "related_snapshots": 0,
+  "cli_exit_code": 0,
+  "report_present": true,
+  "report_sha256": "d6f06784f1cd25438bdfb40dda64c97dd98471e181fb85ec55bf5fbd063bd4bf",
+  "issue_sha256": "b7e24b19241d5b0ed6d1830f6544b01e7511e71237f53e77c7438ba7e7720988",
+  "comments_sha256": "9af5b7592ca973914d14ffed1e982c782a21b13a40a473f5e8209e165fb07817"
+}
